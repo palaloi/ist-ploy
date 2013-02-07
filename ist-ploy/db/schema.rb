@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130131145220) do
+ActiveRecord::Schema.define(:version => 20130207135816) do
 
   create_table "user_sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -41,6 +41,10 @@ ActiveRecord::Schema.define(:version => 20130131145220) do
     t.string   "last_login_ip"
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
+    t.string   "location"
+    t.string   "web_site"
+    t.text     "about_you"
+    t.string   "avatar"
   end
 
 end

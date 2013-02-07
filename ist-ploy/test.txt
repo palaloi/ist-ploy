@@ -1,1 +1,14 @@
-test
+cd /Users/admin/Desktop/ploy_thesis/ist-ploy
+
+
+1. 	Whenever you made changes to the files so that use this command to add files 
+	git add .
+2. Commit your changes by using this command
+	git commit -m "[Your commit text here]"
+	such as git commit -m "Add interface.txt"
+3. Push the code to the server
+	git push origin master
+
+
+4. Everytime you open the project, you should pull the lastest code from the server
+	git pull
