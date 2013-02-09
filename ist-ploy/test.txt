@@ -9,6 +9,8 @@ cd /Users/admin/Desktop/ploy_thesis/ist-ploy
 3. Push the code to the server
 	git push origin master
 
+	Username: palaloi
+	pass: qwerty0222
 
 4. Everytime you open the project, you should pull the lastest code from the server
 	git pull
