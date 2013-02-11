@@ -1,0 +1,140 @@
+<div class="container">
+     
+<div class="row">
+
+<div class="span5">
+
+<span style="font-size:18px">Profile </span><br>
+<span style="font-size:14px; font-style:oblique;"> Edit your name, avatar, etc.</span> 
+
+<br>
+<p>
+<ul class="nav nav-pills">
+  <li class="active"><a href="#">Profile</a></li>
+  <li><a href="#">Password</a></li>
+  <li><a href="#">Notification</a></li>              
+</ul>
+</p>
+
+
+
+</div>
+
+<div class="span1"></div>
+<div class="span1"></div>
+<div class="span1"></div>
+<div class="span1"></div>
+<div class="span1"></div>
+<div class="span1"></div>
+<div class="span1"></div>
+</div>     
+
+<!--
+<p style="padding-top:8px; padding-left:8px;"><img src="images/profile/palaloi.jpg" class="img-rounded" height="80" width="80">
+&nbsp; <span style="font-size:28">Palaloi</span>
+</p>
+-->
+
+<hr>
+
+    <div class="container">
+      <div class="row">
+        <div class="span3">
+        
+        </div><!--/span-->
+        
+
+
+<!-- One Row -->
+<!-- One Thumbnail label -->
+
+	<div class="span6">
+
+<%= form_for(@user, :html => {:class => "form-horizontal"}) do |f| %>
+  <% if @user.errors.any? %>
+  <div  id="errorExplanation">
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %>:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+  <% end %>
+
+
+  <div class="control-group">
+    <label class="control-label" for="inputName">Name</label>
+    <div class="controls">
+      <%= f.text_field :name,:id=>"inputName", :placeholder => "Name"%>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputUsername">Username</label>
+    <div class="controls">
+      <%= f.text_field :login,:id=>"inputUsername", :placeholder => "Username"%>
+    </div>
+  </div>
+  <div class="control-group">
+  <label class="control-label" for="inputEmail">Email</label> 
+    <div class="controls">
+        <%= f.text_field :email,:id=>"inputEmail", :placeholder => "Email"%>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputLocation">Location</label>
+    <div class="controls">
+      <%= f.text_field :location,:id=>"inputLocation", :placeholder => "Location"%>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputWebsite">Your Website</label>
+    <div class="controls">
+      <%= f.text_field :web_site, :id=>"inputWebsite", :placeholder => "Your Website"%>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputName">About You</label>
+    <div class="controls">
+      <%= f.text_area :about_you, :rows => "3" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit "Update Settings", :class=>"btn" %>
+    </div>
+  </div>
+
+<%end%>
+
+
+<form class="form-horizontal">
+  
+  
+    
+  
+
+
+
+  
+  
+
+</form>    
+    
+	</div>
+    
+<!-- End One Thumbnail label -->    
+
+	<div class="span3">
+	</div>
+<!-- One Thumbnail label -->
+
+    
+<!-- End One ROw -->
+
+</div>
+
+</div>

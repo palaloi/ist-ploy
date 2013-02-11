@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
   	c.login_field = 'login'
   end # block optional
 
-  attr_accessible :name, :login, :email, :password, :password_confirmation
+  attr_accessible :name, :login, :email, :password, :password_confirmation, :location, :web_site, :about_you
 end
