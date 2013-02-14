@@ -63,6 +63,7 @@ IstPloy::Application.routes.draw do
 
   resources :users  # give us our some normal resource routes for users
   resource :user, :as => 'account'  # a convenience route
+  match 'user/edit_password' => "users#edit_password", :as => :edit_password
 
   match 'signup' => 'users#new', :as => :signup
 
