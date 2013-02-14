@@ -14,22 +14,21 @@
   </div>
   <% end %>
   <form class="form-signin">
-    <h2 class="form-signin-heading">Account | Password</h2>
-    <span style="font-size:14px; font-style:oblique;">Change your password.</span><hr>    
+    <h2 class="form-signin-heading">Account | Skill</h2>
+    <span style="font-size:14px; font-style:oblique;">Change your skill.</span><hr>    
     <p>
     <ul class="nav nav-pills">
       <li><%= link_to 'Profile', edit_account_path %></li>
-      <li class="active"><%= link_to 'Password', edit_password_path %></li>
+      <li><%= link_to 'Password', edit_password_path %></li>
       <li><%= link_to 'Bio', edit_about_path %></li>
-      <li><%= link_to 'Skill', edit_skill_path %></li>
+      <li class="active"><%= link_to 'Skill', edit_skill_path %></li>
     </ul>   
     </p>      
     <hr>
     
     
-    <%= f.password_field :password,:id=>"oldPassword", :placeholder => "New password", :class => "input-block-level"%>
-    <%= f.password_field :password_confirmation,:id=>"inputName", :placeholder => "Retype new password", :class => "input-block-level"%>
-    <%= hidden_field_tag :target, "edit_password" %>
+    <%= f.text_area :about_you,:id=>"about_you", :placeholder => "New password", :class => "input-block-level", :rows => 5%>
+    <%= hidden_field_tag :target, "edit_skill" %>
         <hr>
     <%= f.submit "Update Settings", :class=>"btn btn-large btn-block btn-primary" %>
 <hr>   

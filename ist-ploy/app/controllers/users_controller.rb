@@ -27,11 +27,22 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @title = "Account | Profile"
     @user = current_user
   end
   def edit_password
+    @title = "Account | Password"
     @user = current_user
   end
+  def edit_about
+    @title = "Account | Bio"
+    @user = current_user
+  end
+  def edit_skill
+    @title = "Account | Skill"
+    @user = current_user
+  end
+
 
   def update
     @user = current_user # makes our views "cleaner" and more consistent
