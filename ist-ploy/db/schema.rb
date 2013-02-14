@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130207135816) do
+ActiveRecord::Schema.define(:version => 20130214125608) do
 
   create_table "user_sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -45,6 +45,9 @@ ActiveRecord::Schema.define(:version => 20130207135816) do
     t.string   "web_site"
     t.text     "about_you"
     t.string   "avatar"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
   end
 
 end
