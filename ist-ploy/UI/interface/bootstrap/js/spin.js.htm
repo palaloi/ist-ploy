@@ -1,0 +1,86 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<script type="text/javascript" src="http://1.s3.envato.com/files/22944569/raphael-min.js"></script>
+	<script type="text/javascript" src="http://1.s3.envato.com/files/22944569/pgloader.js"></script>
+	<script type="text/javascript">
+var PG;
+
+function UISlider(handle, min, max, value, callback) {
+	this.h = document.getElementById(handle);
+	this.h.style.left = (min + value * (max - min)) + 'px';
+	this.value = value;
+	this.h.onmousedown = (function(sl) { return function(e) {
+		e = window.event || e;
+		this.x = e.clientX - this.parentNode.offsetLeft - this.offsetLeft;
+		document.body.style.cursor = 'pointer';
+		document.onmouseup = function() { console.log('asd'); };
+		document.onmousemove = (function(s) { return function(evt) {
+			evt = window.event || evt;
+			var x = evt.clientX - s.parentNode.offsetLeft - min - s.x;
+			if (x < 0) x = 0;
+			if (x > max - min) x = max - min;
+			s.style.left = (min + x) + 'px';
+			sl.value = x / (max - min);
+			callback(sl.value);
+		}; })(this);
+		document.onmouseup = (function(s) { return function() {
+			document.onmousemove = function() { };
+			document.onmouseup = function() { };
+			document.body.style.cursor = 'default';
+			callback(s.value);
+		}; })(sl);
+	}; })(this);
+}
+
+
+
+window.onload = function() {
+	PG = new PGLoader({
+		element: 'loader',
+		radius: 50,
+		color: '#3f3f3f',
+		thickness: 20,
+		speed: 0.25,
+		size: 0.2,
+		fps: 100,
+		direction: 'cw'
+	});
+	radius = new UISlider('radius', 138, 375, 0.5, function(v) {
+		if (v < thickness.value) {
+			thickness.value = v;
+			thickness.h.style.left = (138 + v * 237) + 'px';
+		}
+	});
+
+};
+	</script>
+	<style type="text/css">
+body { background: #d4d4d4; }
+.control-panel {
+	width: 419px;
+	height: 402px;
+	background: url(spin.js_files/controlpanel.png) no-repeat;
+	position: absolute;
+	top: 8px;
+	left: 8px;
+}
+.slider-handle {
+	width: 18px;
+	height: 20px;
+	position: absolute;
+	background: url(spin.js_files/controlpanel.png) no-repeat -256px -422px;
+	cursor: pointer;
+}
+
+	</style>
+</head>
+<body>
+	<div class="control-panel">
+		<div class="slider-handle" id="radius" style="top: 27px;"></div>
+		
+	</div>
+	<div id="loader"></div>
+</body>
+</html>
