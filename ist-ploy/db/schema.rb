@@ -11,7 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130214125608) do
+ActiveRecord::Schema.define(:version => 20130216134325) do
+
+  create_table "skill_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "skill_id"
+    t.integer  "skill_value"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "skills", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "skills_users", :force => true do |t|
+    t.integer "user_id"
+    t.integer "skill_id"
+    t.integer "skill_value"
+  end
 
   create_table "user_sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -48,6 +69,12 @@ ActiveRecord::Schema.define(:version => 20130214125608) do
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
+  end
+
+  create_table "users_skills", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "skill_id"
+    t.integer "skill_value"
   end
 
 end

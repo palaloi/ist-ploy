@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Skill.create(:name => "Programming", :description => "Programming")
+Skill.create(:name => "Networking", :description => "Networking")
+Skill.create(:name => "System Analysis", :description => "System Analysis")
+Skill.create(:name => "Digital Art", :description => "Digital Art")
+Skill.create(:name => "Protography", :description => "Protography")
+Skill.create(:name => "Film And Animation", :description => "Film And Animation")

@@ -28,27 +28,56 @@ class UsersController < ApplicationController
 
   def edit
     @title = "Account | Profile"
-    @user = current_user
+    if !current_user
+      redirect_to root_url
+    else
+      @user = current_user
+    end
   end
   def edit_password
     @title = "Account | Password"
-    @user = current_user
+    if !current_user
+      redirect_to root_url
+    else
+      @user = current_user
+    end
   end
   def edit_about
     @title = "Account | Bio"
-    @user = current_user
+    if !current_user
+      redirect_to root_url
+    else
+      @user = current_user
+    end
   end
   def edit_skill
     @title = "Account | Skill"
-    @user = current_user
+    if !current_user
+      redirect_to root_url
+    else
+      @user = current_user
+      @skills = Skill.all
+    end
   end
 
 
   def update
     @user = current_user # makes our views "cleaner" and more consistent
-    if @user.update_attributes(params[:user])
-      flash[:notice] = "Account updated!"
-      redirect_to account_url
+    if @user.update_attributes(params[:user]) or params[:skill]
+      unless params[:skill]
+        flash[:notice] = "Account updated!"
+        redirect_to account_url  
+      else
+        params[:skill].each do |k,v|
+          skill = @user.skill_users.find_by_skill_id(k.to_i)
+          unless skill.nil?
+            skill.update_attribute("skill_value", v[0].to_i)
+          else
+            SkillUser.create(:user_id => @user.id, :skill_id => k.to_i, :skill_value => v[0].to_i)
+          end
+        end
+        redirect_to account_url 
+      end      
     else
       if params[:target]
         render :action => params[:target]

@@ -25,11 +25,16 @@
     </ul>   
     </p>      
     <hr>
-    
-    
-    <%= f.text_area :about_you,:id=>"about_you", :placeholder => "New password", :class => "input-block-level", :rows => 5%>
+    <% 
+      @skills.each do |skill|
+    %>
+      <%=skill.name%> 
+      
+      <%= text_field_tag "skill["+skill.id.to_s+"][]" , (@user.skill_users.where("skill_id = ?", skill.id).first.skill_value.to_s if (@user.skills.any? and !@user.skill_users.where("skill_id = ?", skill.id).first.nil?)), :class => "input-block-level" %>
+      <br/>
+    <%end%>
     <%= hidden_field_tag :target, "edit_skill" %>
-        <hr>
+    <hr>
     <%= f.submit "Update Settings", :class=>"btn btn-large btn-block btn-primary" %>
 <hr>   
 

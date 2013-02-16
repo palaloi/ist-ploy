@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   # attr_accessible :title, :body
+  has_many :skill_users
+  has_many :skills, :through => :skill_users
   acts_as_authentic do |c|
   	c.login_field = 'login'
   end # block optional
