@@ -1,4 +1,12 @@
 IstPloy::Application.routes.draw do
+
+
+  get "messages/index"
+
+  get "messages/compose"
+
+  get "messages/sent"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -57,6 +65,7 @@ IstPloy::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 
   resources :user_sessions
+  resources :messages
 
   match 'login' => "user_sessions#new",      :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout

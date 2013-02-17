@@ -1,0 +1,19 @@
+<% @inboxes.each do |inbox| %>
+	<% receipts = inbox.receipts_for @user %>
+	<% receipts.each do |receipt| %>
+		date = <%= receipt.message.updated_at %>
+		<br/>
+		subject = <%= receipt.message.subject %>
+		<br/>
+	  Body = <%= receipt.message.body %>
+	  <br/>
+	  isRead = <%= receipt.is_read %>
+	  <br/>
+	  Sender = <%= User.find(receipt.message.sender_id).name %> 
+	  <br/>
+
+	  ------------
+	  <br/>
+	  <br/>
+	<% end %>
+<% end %>

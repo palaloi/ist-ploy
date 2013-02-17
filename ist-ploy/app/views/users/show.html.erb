@@ -1,9 +1,37 @@
 <p>
+<b>Name:</b>
+<%=h @user.name %>
+</p>
+<p>
 <b>Email:</b>
 <%=h @user.email %>
 </p>
-
 <p>
+<b>Web site:</b>
+<%=h @user.web_site %>
+</p>
+<b>Location:</b>
+<%=h @user.location %>
+</p>
+<p>
+<b>Image</b>
+<%= image_tag @user.photo.url(:small) %>
+</p>
+<b>About me:</b>
+<%=h @user.about_you %>
+</p>
+<p>
+<p>
+<b>Skills</b>
+<% 
+  @skills.each do |skill|
+  %>
+    <%=skill.name%> 
+    =>
+    <%=h @user.skill_users.where("skill_id = ?", skill.id).first.skill_value.to_s if (@user.skills.any? and !@user.skill_users.where("skill_id = ?", skill.id).first.nil?) %>
+    <br/>
+  <%end%>
+</p>
 <b>Login count:</b>
 <%=h @user.login_count %>
 </p>

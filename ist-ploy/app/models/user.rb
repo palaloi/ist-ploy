@@ -13,4 +13,14 @@ class User < ActiveRecord::Base
   	},
   	:default_url => "missing.png"
   attr_accessible :name, :login, :email, :password, :password_confirmation, :location, :web_site, :about_you, :photo
+  acts_as_messageable
+  
+  def name
+    self[:name]
+  end
+
+  def mailboxer_email(object)
+    email
+  end  
+  
 end

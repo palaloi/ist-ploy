@@ -24,6 +24,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @title = @user.name
+    @skills = Skill.all
   end
 
   def edit

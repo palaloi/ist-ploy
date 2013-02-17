@@ -29,7 +29,6 @@
       @skills.each do |skill|
     %>
       <%=skill.name%> 
-      
       <%= text_field_tag "skill["+skill.id.to_s+"][]" , (@user.skill_users.where("skill_id = ?", skill.id).first.skill_value.to_s if (@user.skills.any? and !@user.skill_users.where("skill_id = ?", skill.id).first.nil?)), :class => "input-block-level" %>
       <br/>
     <%end%>
