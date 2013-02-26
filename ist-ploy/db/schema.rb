@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130217044359) do
+ActiveRecord::Schema.define(:version => 20130226161400) do
 
   create_table "conversations", :force => true do |t|
     t.string   "subject",    :default => ""
@@ -36,6 +36,29 @@ ActiveRecord::Schema.define(:version => 20130217044359) do
   end
 
   add_index "notifications", ["conversation_id"], :name => "index_notifications_on_conversation_id"
+
+  create_table "portfolio_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "portfolio_tags", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "portfolios", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "portfolio_category_id"
+    t.string   "title"
+    t.text     "detail"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+  end
 
   create_table "receipts", :force => true do |t|
     t.integer  "receiver_id"
@@ -70,6 +93,12 @@ ActiveRecord::Schema.define(:version => 20130217044359) do
     t.integer "user_id"
     t.integer "skill_id"
     t.integer "skill_value"
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "user_sessions", :force => true do |t|
