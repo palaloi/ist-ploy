@@ -1,0 +1,11 @@
+<div class="container">
+  <%= form_for(@portfolio, :url => portfolio_upload_save_path(@portfolio), :html => {:class => "form-signin",  :multipart => true}) do |f| %>
+  	<h2 class="form-signin-heading">Upload file...</h2><hr>
+  	<div class="control-group warning">
+      <label class="control-label" for="inputWarning">file limit 3 MB</label>
+    </div>
+    <%= f.file_field :photo %>
+     <hr>
+    <%= f.submit "Upload", :class=>"btn btn-large btn-block btn-primary" %>
+  <% end %>
+</div> <!-- /container -->

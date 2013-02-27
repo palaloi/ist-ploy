@@ -1,6 +1,5 @@
 IstPloy::Application.routes.draw do
 
-
   get "messages/index"
 
   get "messages/compose"
@@ -78,6 +77,9 @@ IstPloy::Application.routes.draw do
 
   match 'signup' => 'users#new', :as => :signup
 
+  match 'portfolio/upload' => "portfolio#upload", :as => :portfolio_upload
+  match 'portfolio/save' => "portfolio#upload_save", :as => :portfolio_upload_save
+  match 'portfolio/:portfolio_id/upload_detail' => 'portfolio#upload_detail', :as => :portfolio_upload_detail
   root :to => 'user_sessions#new'
   
 end
