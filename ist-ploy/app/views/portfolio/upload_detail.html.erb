@@ -1,5 +1,27 @@
-<h1>Portfolio#upload_detail</h1>
-<p>Find me in app/views/portfolio/upload_detail.html.erb</p>
-pic: <%= image_tag @portfolio.photo.url(:medium) %>
-<br/>
-id: <%= @portfolio.id %>
+<div class="container">
+  <%= form_for(@portfolio, :url => portfolio_upload_save_detail_path(@portfolio), :html => {:class => "form-signin",  :multipart => true}) do |f| %>
+  	<h2 class="form-signin-heading">Description</h2><hr>
+
+  	<%= image_tag(@portfolio.photo.url(:medium), :class => "img-rounded") %>
+
+  	<hr>
+	<div class="input-prepend">
+		<span class="add-on"><i class="icon-info-sign"></i></span>
+		<%= f.text_field :title ,:placeholder => "Title…", :class => "span3"%>
+		<br>
+		<span class="add-on"><i class="icon-list-alt"></i></span>
+		<%= f.text_area :detail ,:placeholder => "Detail", :class => "span3", :rows => 5%>
+		<br>
+		<span class="add-on"><i class="icon-question-sign"></i></span>
+		<%= f.select "portfolio_category", options_from_collection_for_select(@portfolio_category, "id", "name") %>
+		<br><br>
+	</div>
+
+    <%= f.submit "Upload", :class=>"btn btn-large btn-block btn-primary" %>
+  <% end %>
+</div> <!-- /container -->
+
+title: <%= @portfolio.title %><br/>
+date: <%= @portfolio.updated_at.strftime("%d/%m/%Y") %><br/>
+pic: <%= image_tag @portfolio.photo.url(:medium) %><br/>
+id: <%= @portfolio.id %><br/>

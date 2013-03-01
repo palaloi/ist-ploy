@@ -21,7 +21,12 @@ class PortfolioController < ApplicationController
   end
 
   def upload_detail
+    @user = current_user
   	@portfolio = Portfolio.find(params[:portfolio_id])
+    @title =  @portfolio.title.nil?? "Portfolio: " + @user.name: "Portfolio: "+ @portfolio.title
+    @portfolio_category = PortfolioCategory.all
+  end
+  def upload_detail_save
   end
 
   def show
