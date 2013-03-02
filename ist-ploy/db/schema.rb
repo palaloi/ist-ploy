@@ -84,19 +84,6 @@ ActiveRecord::Schema.define(:version => 20130302072738) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "skills", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  create_table "skills_users", :force => true do |t|
-    t.integer "user_id"
-    t.integer "skill_id"
-    t.integer "skill_value"
-  end
-
   create_table "tags", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -138,12 +125,6 @@ ActiveRecord::Schema.define(:version => 20130302072738) do
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
-  end
-
-  create_table "users_skills", :id => false, :force => true do |t|
-    t.integer "user_id"
-    t.integer "skill_id"
-    t.integer "skill_value"
   end
 
   add_foreign_key "notifications", "conversations", :name => "notifications_on_conversation_id"
