@@ -11,3 +11,8 @@ Skill.create(:name => "System Analysis", :description => "System Analysis")
 Skill.create(:name => "Digital Art", :description => "Digital Art")
 Skill.create(:name => "Protography", :description => "Protography")
 Skill.create(:name => "Film And Animation", :description => "Film And Animation")
+
+PortfolioCategory.create(:name => "Drawing")
+PortfolioCategory.create(:name => "Painting")
+PortfolioCategory.create(:name => "Photography")
+PortfolioCategory.create(:name => "Film")
