@@ -80,7 +80,8 @@ IstPloy::Application.routes.draw do
   match 'portfolio/upload' => "portfolio#upload", :as => :portfolio_upload
   match 'portfolio/save' => "portfolio#upload_save", :as => :portfolio_upload_save
   match 'portfolio/:portfolio_id/upload_detail' => 'portfolio#upload_detail', :as => :portfolio_upload_detail
-  match 'portfolio/save_detail' => "portfolio#upload_detail_save", :as => :portfolio_upload_save_detail
+  match 'portfolio/:portfolio_id/save_detail' => "portfolio#upload_detail_save", :as => :portfolio_upload_save_detail
+  match 'portfolio/:portfolio_id/show' => "portfolio#show", :as => :portfolio_show
 
   root :to => 'user_sessions#new'
   

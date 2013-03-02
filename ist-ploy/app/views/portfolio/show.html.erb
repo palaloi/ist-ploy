@@ -1,4 +1,10 @@
 <h1>Portfolio#show</h1>
 <p>Find me in app/views/portfolio/show.html.erb</p>
 
+title: <%= @portfolio.title %><br/>
+detail: <%= @portfolio.detail %><br/>
+date: <%= @portfolio.updated_at.strftime("%d/%m/%Y") %><br/>
+category: <%= PortfolioCategory.find(@portfolio.portfolio_category).name%>
 
+<br/>
+<%= link_to 'Edit Portfolio', portfolio_upload_detail_path %>

@@ -16,3 +16,7 @@ PortfolioCategory.create(:name => "Drawing")
 PortfolioCategory.create(:name => "Painting")
 PortfolioCategory.create(:name => "Photography")
 PortfolioCategory.create(:name => "Film")
+
+Tag.create(:name => "ThisIsATestTag")
+Tag.create(:name => "JustAnotherTest")
+Tag.create(:name => "PushTestAgain")

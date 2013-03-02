@@ -1,27 +1,92 @@
 <div class="container">
-  <%= form_for(@portfolio, :url => portfolio_upload_save_detail_path(@portfolio), :html => {:class => "form-signin",  :multipart => true}) do |f| %>
+  <%= form_tag(portfolio_upload_save_detail_path(@portfolio), :class => "form-signin") do |f| %>
   	<h2 class="form-signin-heading">Description</h2><hr>
-
+  	<%= hidden_field_tag "id", @portfolio.id %>
   	<%= image_tag(@portfolio.photo.url(:medium), :class => "img-rounded") %>
 
   	<hr>
 	<div class="input-prepend">
 		<span class="add-on"><i class="icon-info-sign"></i></span>
-		<%= f.text_field :title ,:placeholder => "Title…", :class => "span3"%>
+		<%= text_field_tag("title" , @portfolio.title ,:placeholder => "Title…", :class => "span3")%>
 		<br>
 		<span class="add-on"><i class="icon-list-alt"></i></span>
-		<%= f.text_area :detail ,:placeholder => "Detail", :class => "span3", :rows => 5%>
+		<%= text_area_tag("detail", @portfolio.detail,:placeholder => "Detail", :class => "span3", :rows => 5)%>
 		<br>
 		<span class="add-on"><i class="icon-question-sign"></i></span>
-		<%= f.select "portfolio_category", options_from_collection_for_select(@portfolio_category, "id", "name") %>
+		<%= select_tag "portfolio_category", options_from_collection_for_select(@portfolio_category, "id", "name") %>
 		<br><br>
+		
+		<span class="add-on"><i class="icon-tags"></i></span><input class="span3"  type="text" placeholder="Tag Keyword" id="tag_cloud" data-provide="typeahead" data-source="<%= @tag.to_json %>"> 
+		<button type="button" id="add_new_tag"  class="btn btn-info right" rel="tooltip" data-original-title="Add Tag" style="display: none;"><i class="icon-plus"></i></button>
+		<div id="selected_tag">
+			
+		</div>
+		<%= hidden_field_tag "hidden_tag", "" %>
 	</div>
 
-    <%= f.submit "Upload", :class=>"btn btn-large btn-block btn-primary" %>
+    <%= submit_tag "Update", :class=>"btn btn-large btn-block btn-primary" %>
   <% end %>
 </div> <!-- /container -->
+<script type="text/javascript">
+	var tag_form = [];
+	var portfolio = <%=@portfolio.to_json.html_safe%>;
+  $(function() {
+  	function populateTag(){
+  		var string = "";
+  		tag_form.forEach(function(d){
+  			string += d +",";
+  		});
+  		$("#hidden_tag").val(string);
+  	}
+  	portfolio.tags.forEach(function(d){
+  		tag_form.push(d.name);
+  		var string = '<div id="' + d.name +'"> \
+				<label style="display: inline; float: left; margin-right: 5px;">' + d.name + '</label>';
+			string += '<em id=close_';
+			string += d.name;
+			string += ' class="close" style="width: 25px; opacity: 1; font-style: initial; background-color: white; border: 1px solid #DDD; border-radius: 0 4px 4px 0; display: inline; float: left; margin-right: 15px; text-align: center; ">×</em></div><div style="clear:both;"/>';
+	  	$("#selected_tag").append(string);
+	  	populateTag();
+	  	$(".close").click(function(){
+	  		var delete_label = $(this).parent().find(">label");
+	  		$(this).parent().hide();
+	  		// alert($(delete_label).text());
+	  		tag_form = _(tag_form).reject(function(d){return d ==  $(delete_label).text()});
+	  		populateTag();
+	  	});
+  	});
+	  $("#add_new_tag").click(function(){
+	  	var value = $("#tag_cloud").val();
+	  	var string = '<div id="' + $("#tag_cloud").val() +'"> \
+				<label style="display: inline; float: left; margin-right: 5px;">' + $("#tag_cloud").val() + '</label>';
+			string += '<em id=close_';
+			string += $('#tag_cloud').val();
+			string += ' class="close" style="width: 25px; opacity: 1; font-style: initial; background-color: white; border: 1px solid #DDD; border-radius: 0 4px 4px 0; display: inline; float: left; margin-right: 15px; text-align: center; ">×</em></div><div style="clear:both;"/>';
+	  	
+	  	$("#tag_cloud").val("");
+	  	$("#add_new_tag").attr("style","display: none;");
+	  	var matched = _(tag_form).find(function(d){return d == value});
+	  	if(!matched){
+	  		tag_form.push(value);
+	  		$("#selected_tag").append(string);
+	  		populateTag();
+	  	}
+	  	$(".close").click(function(){
+	  		var delete_label = $(this).parent().find(">label");
+	  		$(this).parent().hide();
+	  		// alert($(delete_label).text());
+	  		tag_form = _(tag_form).reject(function(d){return d ==  $(delete_label).text()});
+	  		populateTag();
+	  	});
+	 	});
+	  $("#tag_cloud").keyup(function(){
+	  	if($(this).val())
+	  		$("#add_new_tag").attr("style","display: in-line;");
+	  	else 
+	  		$("#add_new_tag").attr("style","display: none;");
+	  });
 
-title: <%= @portfolio.title %><br/>
-date: <%= @portfolio.updated_at.strftime("%d/%m/%Y") %><br/>
-pic: <%= image_tag @portfolio.photo.url(:medium) %><br/>
-id: <%= @portfolio.id %><br/>
+  });
+ 
+</script>
+
