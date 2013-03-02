@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130226161400) do
+ActiveRecord::Schema.define(:version => 20130302072738) do
 
   create_table "conversations", :force => true do |t|
     t.string   "subject",    :default => ""
@@ -44,8 +44,10 @@ ActiveRecord::Schema.define(:version => 20130226161400) do
   end
 
   create_table "portfolio_tags", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "tag_id"
+    t.integer  "portfolio_id"
   end
 
   create_table "portfolios", :force => true do |t|
