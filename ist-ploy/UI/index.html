@@ -13,33 +13,99 @@
 
  <body>
  
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#"><img src="interface/images/logo.png" alt=""></a>
-          <!-- <a class="brand" href="#">IST Web Portfolio</a> -->
-          <div class="nav-collapse collapse"> 
-          <!--   <p class="navbar-text pull-right">
-              Logged in as <a href="#" class="navbar-link">Palaloi</a>
-            </p>  -->
-            <ul class="nav pull-right">
-              <li><div class="btn-group" style="margin: 15px 0px 15px;">
-              <button class="btn"><a href="index.html"><i class="icon-home" style="margin: 5px 0px 5px;"></i></a></button>
-              <button class="btn"><a href="interface/portfolioMain.html"><i class="icon-picture" style="margin: 5px 0px 5px;"></i></a></button>
-              <button class="btn"><a href="interface/portfolioPersonal.html"><i class="icon-user" style="margin: 5px 0px 5px;"></i></a></button>
-              <button class="btn"><a href="interface/portfolioTag.html"><i class="icon-tags" style="margin: 5px 0px 5px;"></i></a></button>
-              <button class="btn"><a href="interface/messageIndex.html"><i class="icon-envelope" style="margin: 5px 0px 5px;"></i></a></button>
-            </div></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
+ <!-- Menu Head -->   
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="#"><img src="interface/images/logo.png" alt=""></a>
+          
+<!-- Profile Picture 40*40 pixel | Menu Head -->          
+                <div class="nav-collapse collapse">          
+                    <ul class="nav pull-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="interface/images/profile/palaloi.jpg" class="img-rounded" height="40" width="40">&nbsp;<b class="caret"></b>
+                            </a>          
+                
+                        <ul class="dropdown-menu">
+                            <li class="nav-header">Profile's : พะละลอยด์</li>
+                            <li class="divider"></li>
+                            <li><a href="#">My Profile</a></li>
+                            <li><a href="#">My Portfolio</a></li>
+                            <li><a href="#">Setting</a></li>
+                        </ul><!-- ul class="dropdown-menu" -->   
+                        </li><!-- li class="dropdown" -->   
+                    </ul><!-- ul class="nav pull-right" --> 
+                </div><!-- div class="nav-collapse collapse" --> 
+                <!-- END Profile | Menu Head -->  
+
+
+<!-- Detail  | Menu Head | เพราะว่า margin คนละค่า ก็เลยต้องแยก (-_-") -->                   
+				<div class="nav-collapse collapse">          
+					<ul class="nav pull-right" style="margin: 11px 0px 0px;">
+<!-- Portfolios -->                      
+						<li class="dropdown">
+                			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolios <b class="caret"></b></a>
+                			<ul class="dropdown-menu">
+                                <li class="nav-header">ผลงานนักศึกษา</li>
+                                <li class="divider"></li>
+                                <li><a href="news.html">Popular</a></li>
+                                <li><a href="#">Recent</a></li>
+                                <li><a href="#">Everyone</a></li>
+                                <li><a href="#">My Friends</a></li>
+                                <li><a href="#">Hot Tags</a></li>
+                                <li><a href="#"></a></li>
+            				</ul><!-- ul class="dropdown-menu" -->   
+              			</li><!-- li class="dropdown" -->  
+
+<!-- News -->     
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li class="nav-header">ข่าว/ประกาศ</li>
+								<li class="divider"></li>
+								<li><a href="news.html">ข่าวล่าสุด</a></li>
+								<li><a href="#">ข่าวกิจกรรม</a></li>
+								<li><a href="#">ข่าวภายใน</a></li>
+								<li><a href="#">ข่าวภายนอก</a></li>
+								<li><a href="#">ข่าวงานประกวด</a></li>
+								<li><a href="#">ข่าวรับสมัครงาน</a></li>
+								<li><a href="#"></a></li>
+							</ul>
+						</li>
+
+<!-- Registration -->                          
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Registration <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+                                <li class="nav-header">นาถพร ประวันนา</li>
+                                <li class="divider"></li>
+                                <li><a href="regisStdmars.html">View Profile</a></li>
+                                <li><a href="regisTranscript.html">View Transcript</a></li>
+                                <li><a href="regisTimetable.html">View Timetable</a></li>
+                            </ul><!-- ul class="dropdown-menu" -->   
+						</li><!-- li class="dropdown" -->   
+					</ul><!-- ul class="nav pull-right" --> 
+				</div><!-- div class="nav-collapse collapse" --> 
+
+
+<!-- Seaechhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh -->  
+					<ul class="nav pull-right">
+                    	<li>
+                            <div style="margin: 10px 0px 0px;">
+                                <form class="navbar-search">
+                                    <input type="text" class="search-query" placeholder="Search">
+                                </form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+						</li>
+					</ul>
+                    
+                    
+        	</div><!-- container -->
+		</div><!-- navbar-inner --> 
+    </div><!-- navbar navbar-inverse navbar-fixed-top -->
+    
+<!-- END Menu Head -->
         <!-- Carousel
     ================================================== -->
     
@@ -93,12 +159,12 @@
 <div class="row-fluid">
   <div class="span12">
               <div class="span6">
-              <p><h1>Evernote Web</h1></p>
-<p>ตั้งแต่ความสนใจจนถึงการค้นคว้า บันทึกทุกสิ่งที่คุณเห็นในโลกออนไลน์ เช่น ข้อความ ลิงก์ และภาพ ลงในบัญชี Evernote ของคุณด้วยการคลิกเพียงครั้งเดียว</p>
+              <p><h1>IST PORTFOLIOS</h1></p>
+<p>เว็บแสดงผลงานของนักศึกษาคณะวิทยาการและเทคโนโลยีสารสนเทศ มหาวิทยาลัยเทคโนโลยีมหานคร</p>
 <p><a class="btn btn-primary btn-large">Learn more »</a></p>
               </div>
               
-              <div class="span6" align="right"><img src="interface/bootstrap/img/index_hero_penultimate.png" ></div>
+              <div class="span6" align="right"><img src="interface/images/index-icon.png" ></div>
                       </div>
       </div>
             </div>
@@ -132,14 +198,180 @@
           <p><a class="btn" href="#">View details »</a></p>
         </center></div>
       </div>
+<br>
+<!-- 
+<ul class="thumbnails">
+            <li class="span4"><h1>Portfolios</h1>
+              <a href="#" class="thumbnail">
+                <img data-src="holder.js/360x270" alt="360x270" style="width: 360px; height: 270px;" src="">
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img data-src="holder.js/260x120" alt="260x120" style="width: 260px; height: 120px;" src="">
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img data-src="holder.js/160x120" alt="160x120" style="width: 160px; height: 120px;" src="">
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img data-src="holder.js/260x120" alt="260x120" style="width: 260px; height: 120px;" src="">
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img data-src="holder.js/160x120" alt="160x120" style="width: 160px; height: 120px;" src="">
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img data-src="holder.js/260x120" alt="260x120" style="width: 260px; height: 120px;" src="">
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img data-src="holder.js/160x120" alt="160x120" style="width: 160px; height: 120px;" src="">
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img data-src="holder.js/260x120" alt="260x120" style="width: 260px; height: 120px;" src="">
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img data-src="holder.js/160x120" alt="160x120" style="width: 160px; height: 120px;" src="">
+              </a>
+            </li>
+          </ul>
+-->
+<hr><div align="center"><strong><h1>Portfolios</h1></strong></div><hr>
+<div class="row">
+<div class="span4">
+<div class="alert alert-danger" ><strong><h4>Popular</h4></strong></div>
+		<ul class="thumbnails">
+            <li class="span4">
+              <a href="#" class="thumbnail">
+                <img src="interface/images/portfolio/jirayu/toffy-main.png" alt="360x270" style="width: 360px; height: 270px;" src="">
+              </a>
+            </li>
+		</ul>
+</div>
 
+<div class="span4">
+<div class="alert alert-success"><strong><h4>Recent</h4></strong></div>
+		<ul class="thumbnails">
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img src="interface/images/portfolio/walid/226971_10151322246040994_1741126243_n.jpg" alt="160x120" style="width: 160px; height: 120px;">
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img src="interface/images/portfolio/walid/582381_10151225361920994_292292123_n.jpg" alt="160x120" style="width: 160px; height: 120px;">
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img src="interface/images/portfolio/Yuttana/524658_429803547046715_1853124630_n.jpg" alt="160x120" style="width: 160px; height: 120px;">
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img src="interface/images/portfolio/Yuttana/547114_478464035513999_272521188_n.jpg" alt="160x120" style="width: 160px; height: 120px;">
+              </a>
+            </li>
+          </ul>
+</div>
+
+<div class="span4">
+<div class="alert alert-info"><strong><h4>Everyone</h4></strong></div>
+		<ul class="thumbnails">
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img src="interface/images/portfolio/walid/226971_10151322246040994_1741126243_n.jpg" alt="160x120" style="width: 160px; height: 120px;">
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img src="interface/images/portfolio/walid/582381_10151225361920994_292292123_n.jpg" alt="160x120" style="width: 160px; height: 120px;">
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img src="interface/images/portfolio/Yuttana/524658_429803547046715_1853124630_n.jpg" alt="160x120" style="width: 160px; height: 120px;">
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img src="interface/images/portfolio/Yuttana/547114_478464035513999_272521188_n.jpg" alt="160x120" style="width: 160px; height: 120px;">
+              </a>
+            </li>
+        </ul>
+</div>
+
+</div><!-- rowwwwww -->
+
+<hr><div align="center"><strong><h1>Profiles</h1></strong></div><hr><div class="row">
+<div class="span4">
+<div class="alert alert-danger" ><strong><h4>Teacher</h4></strong></div>
+		<ul class="thumbnails">
+            <li class="span4">
+              <a href="#" class="thumbnail">
+                <img alt="160px" style="width: 360px; height: 270px;" src="interface/images/profile/jirayu/jirayu2.png">
+              </a>
+            </li>
+		</ul>
+</div>
+
+<div class="span4">
+<div class="alert alert-success"><strong><h4>Staff</h4></strong></div>
+		<ul class="thumbnails">
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img alt="160px" style="width: 360px; height: 270px;" src="interface/images/profile/palaloi/palaloi.png">
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img alt="160px" style="width: 360px; height: 270px;" src="interface/images/profile/walid/walid.png">
+              </a>
+            </li>          </ul>
+</div>
+
+<div class="span4">
+<div class="alert alert-info"><strong><h4>Students</h4></strong></div>
+		<ul class="thumbnails">
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img src="interface/images/profile/Yuttana/409238_540253586001710_1229921355_n.jpg" alt="160x120" style="width: 160px; height: 120px;">
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img src="interface/images/profile/กิ๊ฟฟะเช่ออ/Untitled-4.png" alt="160x120" style="width: 160px; height: 120px;">
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img src="interface/images/profile/ขวัญ/kkkk.png" alt="160x120" style="width: 160px; height: 120px;">
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img src="interface/images/profile/นิ่ม/nim.png" alt="160x120" style="width: 160px; height: 120px;">
+              </a>
+            </li>
+          </ul>
+</div>
+
+</div><!-- rowwwwww -->
 
 
       <hr>
-
-      <footer>
-        <p>© IST MUT</p>
-      </footer>
 
     </div>
 
