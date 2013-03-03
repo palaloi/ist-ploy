@@ -10,7 +10,7 @@ class PortfolioController < ApplicationController
   def upload_save
   	@user = current_user
   	@portfolio = Portfolio.new(params[:portfolio])
-    @portfolio.user = @user
+    @portfolio.user_id = @user.id
   	@portfolio.photo = params[:portfolio][:photo]
   	if @portfolio.save
   		flash[:notice] = "Your photo has been created."

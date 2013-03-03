@@ -16,6 +16,11 @@
 	-o-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out;
 }
+.user-link {
+	padding-top:8px; 
+	padding-left:8px;
+	padding-bottom: 20px;
+}
 </style>
 <div class="container">
 	<div class="span12">
@@ -67,8 +72,10 @@
 					</div> <!-- thumbnail -->
 					<!-- Profile Picture & Username -->
 					<% user = User.find(port.user_id) %>
+					<div class="user-link">
 					<%= link_to(image_tag(user.photo.url(:thumb), :class => "img-rounded", :height => 30, :width => 30) + " " + user.name, 
-        		show_user_path(:user_id => user.id), :style => "padding-top:8px; padding-left:8px;")%>
+        		show_user_path(:user_id => user.id), :style => "")%>
+        	</div>
     		</li>
     		<% end %>
 			</div><!-- Row -->
