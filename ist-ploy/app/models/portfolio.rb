@@ -8,6 +8,6 @@ class Portfolio < ActiveRecord::Base
       :small  => "400x400>",
       :medium  => "800x800>"
   	},
-  	:default_url => "missing.png"
+  	:default_url => "no_data.png"
   attr_accessible :detail, :portfolio_category_id, :title, :user_id, :photo
 end

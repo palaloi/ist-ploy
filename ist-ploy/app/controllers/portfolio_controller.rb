@@ -10,6 +10,7 @@ class PortfolioController < ApplicationController
   def upload_save
   	@user = current_user
   	@portfolio = Portfolio.new(params[:portfolio])
+    @portfolio.user = @user
   	@portfolio.photo = params[:portfolio][:photo]
   	if @portfolio.save
   		flash[:notice] = "Your photo has been created."
@@ -57,5 +58,13 @@ class PortfolioController < ApplicationController
     @portfolio = Portfolio.find(params[:portfolio_id])
     @portfolio["tags"] = @portfolio.portfolio_tags
     @title =  @portfolio.title.nil?? "Portfolio: " + @user.name: "Portfolio: "+ @portfolio.title
+  end
+
+  def feed
+    @portfolio = Portfolio.order("created_at DESC")
+    @title = "Portfolio Feed"
+    # respond_to do |format|
+    #   format.json { render :json => {:portfolio => @portfolio } } 
+    # end
   end
 end
