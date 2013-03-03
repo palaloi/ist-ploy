@@ -103,7 +103,7 @@
 						<p><small><li><i class="icon-info-sign"></i><label class="icontent"><%= @portfolio.title %></label></li></small></p>
 						<p><small><li><i class="icon-calendar"></i><label class="icontent"><%= @portfolio.updated_at.strftime("%d/%m/%Y") %></label></li></small></p>
 						<p><small><li><i class="icon-time"></i></i><label class="icontent"><%= @portfolio.updated_at.strftime("%H:%M") %></label</li></small></p>
-						<p><small><li><i class="icon-question-sign"></i><label class="icontent"><%= PortfolioCategory.find(@portfolio.portfolio_category).name%></label></li></small></p>
+						<p><small><li><i class="icon-question-sign"></i><label class="icontent"><%= PortfolioCategory.find(@portfolio.portfolio_category).name unless @portfolio.portfolio_category.nil? %></label></li></small></p>
 						<p>
 							<small>
 								<li style="height: 100%;">
@@ -117,7 +117,10 @@
 						<li>
 						<label><strong>Detail</strong></label>
 						</li>
-						<p><small><li><i class="icon-list-alt"></i><label class="icontent"><%= @portfolio.detail%></label></li></small></p>
+						<p><small><li style="height: 100%;">
+              <i class="icon-list-alt"></i>
+              <label class="icontent" style="text-align: justify;"><%= @portfolio.detail%></label>
+            </li></small></p>
 						</p>
 					</ul>
 				</div>

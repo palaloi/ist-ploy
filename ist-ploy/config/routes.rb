@@ -72,6 +72,7 @@ IstPloy::Application.routes.draw do
   resources :users  # give us our some normal resource routes for users
   resource :user, :as => 'account'  # a convenience route
   match 'user/edit' => "users#edit", :as => :edit_user
+  match 'user/show/:user_id' => "users#show", :as => :show_user
   match 'user/edit_password' => "users#edit_password", :as => :edit_password
   match 'user/edit_bio' => "users#edit_about", :as => :edit_about
   match 'user/edit_skill' => "users#edit_skill", :as => :edit_skill
@@ -83,6 +84,7 @@ IstPloy::Application.routes.draw do
   match 'portfolio/:portfolio_id/upload_detail' => 'portfolio#upload_detail', :as => :portfolio_upload_detail
   match 'portfolio/:portfolio_id/save_detail' => "portfolio#upload_detail_save", :as => :portfolio_upload_save_detail
   match 'portfolio/:portfolio_id/show/:user_id' => "portfolio#show", :as => :portfolio_show
+  match 'portfolio/feed' => "portfolio#feed", :as => :portfolio_feed
 
   root :to => 'user_sessions#new'
   

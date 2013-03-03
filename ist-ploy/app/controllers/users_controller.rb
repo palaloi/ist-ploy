@@ -23,7 +23,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+    else 
+      @user = current_user
+    end
     @title = @user.name
     @skills = Skill.all
   end
