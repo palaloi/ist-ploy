@@ -1,0 +1,99 @@
+/*
+	COLORS
+ 
+	Dark Blue 			#222438
+	Medium Blue			#959db5
+	Light Blue	 		#c9d5e1
+	Dark Blue Links		#1a4a6a
+	
+*/
+
+/*----------------------------------------  HEADER  */
+
+/*----------------------------------------  SLIDES  */
+
+.slide {
+	margin: 0 auto;
+	width: 100%;
+	padding: 120px 0;
+	padding: 12rem 0;
+	height: 40rem;
+}
+
+#animations {
+	padding-top: 70px;
+	padding-top: 7rem;
+	height: 480px;
+	height: 48rem;
+}
+
+
+/*------------------------  BASE-REM SIZING  */
+
+
+@media (min-width: 1520px) {
+	html {
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 1400px) {
+	html {
+		font-size: 11px;
+	}
+}
+
+/* target screen width  */
+@media (max-width: 1280px) {
+	html {
+		font-size: 10px;
+	}
+}
+	
+@media (max-width: 1160px) {
+	html {
+		font-size: 9px;
+	}
+}
+	
+@media (max-width: 1040px) {
+	html {
+		font-size: 8px;
+	}
+}
+	
+@media (max-width: 920px) {
+	html {
+		font-size: 7px;
+	}
+}
+	
+@media (max-width: 800px) {
+	html {
+		font-size: 6px;
+	}
+}
+	
+@media (max-width: 680px) {
+	html {
+		font-size: 5px;
+	}
+}
+	
+@media (max-width: 560px) {
+	html {
+		font-size: 4px;
+	}
+}
+	
+@media (max-width: 440px) {
+	html {
+		font-size: 3px;
+	}
+}
+
+@media (max-width: 320px) {
+	html {
+		font-size: 3px;
+	}
+}
