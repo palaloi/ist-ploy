@@ -61,8 +61,21 @@ class PortfolioController < ApplicationController
   end
 
   def feed
-    @portfolio = Portfolio.order("created_at DESC")
     @title = "Portfolio Feed"
+    @categories = PortfolioCategory.order("name asc")
+    @portfolio = Portfolio.order("created_at DESC")
+    @action = "recent"
+    if params[:category]
+      @portfolio = Portfolio.find(:all, :conditions => {:portfolio_category_id => params[:category]}, :order => "created_at DESC")
+      @action = "category"
+    elsif params[:action]
+      if params[:action] == "recent"
+        @portfolio = Portfolio.order("created_at DESC")  
+        @action = "recent"
+      end
+    else 
+      @portfolio = Portfolio.order("created_at DESC")
+    end
     # respond_to do |format|
     #   format.json { render :json => {:portfolio => @portfolio } } 
     # end
