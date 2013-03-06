@@ -6,19 +6,36 @@ class PortfolioController < ApplicationController
 
   def upload
   	@portfolio = Portfolio.new
+    @title = "Upload file"
   end
   def upload_save
   	@user = current_user
   	@portfolio = Portfolio.new(params[:portfolio])
-    @portfolio.user_id = @user.id
-  	@portfolio.photo = params[:portfolio][:photo]
-  	if @portfolio.save
-  		flash[:notice] = "Your photo has been created."
-      redirect_to portfolio_upload_detail_url(@portfolio)
-  	else 
-  		flash[:notice] = "There was a problem creating your portfolio."
+    if params[:portfolio].nil? or params[:portfolio][:photo].nil?
+      flash[:error_notice] = "Attached file can not be blank."
       render :action => :upload
-  	end
+    else 
+      @portfolio.user_id = @user.id
+    	
+      extension = params[:portfolio][:photo].original_filename.split(".").last
+      puts "extension = #{extension}"
+      if extension == "zip" or extension == "rar"
+        puts "zippppp"
+        @portfolio.zip = params[:portfolio][:photo] unless params[:portfolio].nil?
+      elsif  extension == "jpg" or extension == "png" or extension == "gif"
+        puts "photoooo"
+        @portfolio.photo = params[:portfolio][:photo] unless params[:portfolio].nil?
+      end
+    	if @portfolio.save
+
+    		flash[:notice] = "Your attached file has been created."
+        redirect_to portfolio_upload_detail_url(@portfolio)
+    	else 
+    		# flash[:notice] = "There was a problem creating your portfolio."
+        flash[:error_notice] = @portfolio.errors.full_messages.to_sentence
+        render :action => :upload
+    	end
+    end
   end
 
   def upload_detail

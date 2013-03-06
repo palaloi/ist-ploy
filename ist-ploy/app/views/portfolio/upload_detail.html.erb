@@ -2,7 +2,7 @@
   <%= form_tag(portfolio_upload_save_detail_path(@portfolio), :class => "form-signin") do |f| %>
   	<h2 class="form-signin-heading">Description</h2><hr>
   	<%= hidden_field_tag "id", @portfolio.id %>
-  	<%= image_tag(@portfolio.photo.url(:medium), :class => "img-rounded") %>
+  	<%= image_tag(@portfolio.photo.url(:medium), :class => "img-rounded") if @portfolio.photo%>
 
   	<hr>
 	<div class="input-prepend">
