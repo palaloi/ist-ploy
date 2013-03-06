@@ -8,16 +8,14 @@
   
 </head>
 <body>
-
+  <div class="container-fluid">
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
-      <div class="container">
-        <%= link_to image_tag("logo.png", :border=>0), "#", :class => "brand"%>
-
+      <%= link_to image_tag("logo.png", :border=>0), "#", :class => "brand"%>
 <!-- Profile Picture 40*40 pixel | Menu Head -->          
-                <div class="nav-collapse collapse">          
-                    <ul class="nav pull-right">
-                        <li class="dropdown">
+      <div class="nav-collapse collapse">          
+        <ul class="nav pull-right">
+          <li class="dropdown">
                             
 <!-- 
 *
@@ -26,7 +24,7 @@
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
 -->
 
-<%= link_to image_tag("profile/palaloi.jpg", :border=>0, :width => 40, :height => 40, :class => "img-rounded"), "#", :class=>"dropdown-toggle" %>
+                <%= link_to image_tag("profile/palaloi.jpg", :border=>0, :width => 40, :height => 40, :class => "img-rounded"), "#", :class=>"dropdown-toggle" %>
 
 <!-- 
 *
@@ -36,15 +34,15 @@
 </a> 
 -->
                 
-                        <ul class="dropdown-menu">
-                            <li class="nav-header">Profile's : พะละลอยด์</li>
-                            <li class="divider"></li>
-                            <li><a href="portfolioPersonal.html">My Portfolio</a></li>
-                            <li><a href="profileEdit.html">Edit Profile</a></li>
-                        </ul><!-- ul class="dropdown-menu" -->   
-                        </li><!-- li class="dropdown" -->   
-                    </ul><!-- ul class="nav pull-right" --> 
-                </div><!-- div class="nav-collapse collapse" --> 
+            <ul class="dropdown-menu">
+                <li class="nav-header">Profile's : พะละลอยด์</li>
+                <li class="divider"></li>
+                <li><a href="portfolioPersonal.html">My Portfolio</a></li>
+                <li><a href="profileEdit.html">Edit Profile</a></li>
+            </ul><!-- ul class="dropdown-menu" -->   
+            </li><!-- li class="dropdown" -->   
+        </ul><!-- ul class="nav pull-right" --> 
+      </div><!-- div class="nav-collapse collapse" --> 
                 <!-- END Profile | Menu Head -->  
 
 
@@ -108,15 +106,17 @@
 
             </li>
           </ul>
-                    
-          </div><!-- container -->
     </div><!-- navbar-inner --> 
+  </div>
     <!-- navbar navbar-inverse navbar-fixed-top -->
     
 <!-- END Menu Head -->
-
+<div class="row-fluid">
 
 <%= yield %>
+</div> <!-- End of row -->
+
+</div><!-- End of container -->
 
 </body>
 </html>
