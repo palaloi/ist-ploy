@@ -8,61 +8,59 @@
   
 </head>
 <body>
-  <div class="container-fluid">
+
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
-      <%= link_to image_tag("logo.png", :border=>0), "#", :class => "brand"%>
+      <div class="container">
+
+        <%= link_to image_tag("logo.png", :border=>0), "#", :class => "brand"%>
+
 <!-- Profile Picture 40*40 pixel | Menu Head -->          
-      <div class="nav-collapse collapse">          
-        <ul class="nav pull-right">
-          <li class="dropdown">
+        <div class="nav-collapse collapse">          
+          <ul class="nav pull-right">
+            <li class="dropdown">
                             
 <!-- 
-*
-แก้ยังไงค้าบ ทำไม่เป็นค้าบ พูดเลยยยย
-*  
+แก้ยังไงค้าบ ทำไม่เป็นค้าบ พูดเลยยยย 
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
 -->
 
                 <%= link_to image_tag("profile/palaloi.jpg", :border=>0, :width => 40, :height => 40, :class => "img-rounded"), "#", :class=>"dropdown-toggle" %>
 
-<!-- 
-*
-นี่ด้วยอ่ะค้าบบบ
-* 
+<!-- นี่ด้วยอ่ะค้าบบบ 
 &nbsp;<b class="caret"></b>
 </a> 
 -->
                 
-            <ul class="dropdown-menu">
+              <ul class="dropdown-menu">
                 <li class="nav-header">Profile's : พะละลอยด์</li>
                 <li class="divider"></li>
                 <li><a href="portfolioPersonal.html">My Portfolio</a></li>
                 <li><a href="profileEdit.html">Edit Profile</a></li>
-            </ul><!-- ul class="dropdown-menu" -->   
+              </ul><!-- ul class="dropdown-menu" -->   
             </li><!-- li class="dropdown" -->   
-        </ul><!-- ul class="nav pull-right" --> 
-      </div><!-- div class="nav-collapse collapse" --> 
-                <!-- END Profile | Menu Head -->  
+          </ul><!-- ul class="nav pull-right" --> 
+        </div><!-- div class="nav-collapse collapse" --> 
 
+<!-- END Profile | Menu Head -->  
 
 <!-- Detail  | Menu Head | เพราะว่า margin คนละค่า ก็เลยต้องแยก (-_-") -->                   
         <div class="nav-collapse collapse">          
           <ul class="nav pull-right" style="margin: 11px 0px 0px;">
 <!-- Portfolios -->                      
             <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolios <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                                <li class="nav-header">ผลงานนักศึกษา</li>
-                                <li class="divider"></li>
-                                <li><a href="portfolio.html">Popular</a></li>
-                                <li><a href="#">Recent</a></li>
-                                <li><a href="#">Everyone</a></li>
-                                <li><a href="#">My Friends</a></li>
-                                <li><a href="#">Hot Tags</a></li>
-                                <li><a href="#"></a></li>
-                    </ul><!-- ul class="dropdown-menu" -->   
-                    </li><!-- li class="dropdown" -->  
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolios <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="nav-header">ผลงานนักศึกษา</li>
+                  <li class="divider"></li>
+                  <li><a href="portfolio.html">Popular</a></li>
+                  <li><a href="#">Recent</a></li>
+                  <li><a href="#">Everyone</a></li>
+                  <li><a href="#">My Friends</a></li>
+                  <li><a href="#">Hot Tags</a></li>
+                  <li><a href="#"></a></li>
+                </ul><!-- ul class="dropdown-menu" -->   
+            </li><!-- li class="dropdown" -->  
 
 <!-- News -->     
             <li class="dropdown">
@@ -84,12 +82,12 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Registration <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                                <li class="nav-header">นาถพร ประวันนา</li>
-                                <li class="divider"></li>
-                                <li><a href="regisStdmars.html">View Profile</a></li>
-                                <li><a href="regisTranscript.html">View Transcript</a></li>
-                                <li><a href="regisTimetable.html">View Timetable</a></li>
-                            </ul><!-- ul class="dropdown-menu" -->
+                <li class="nav-header">นาถพร ประวันนา</li>
+                <li class="divider"></li>
+                <li><a href="regisStdmars.html">View Profile</a></li>
+                <li><a href="regisTranscript.html">View Transcript</a></li>
+                <li><a href="regisTimetable.html">View Timetable</a></li>
+              </ul><!-- ul class="dropdown-menu" -->
             </li><!-- li class="dropdown" -->
           </ul><!-- ul class="nav pull-right" -->
         </div><!-- div class="nav-collapse collapse" -->
@@ -97,20 +95,20 @@
 
 <!-- Seaechhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh -->
           <ul class="nav pull-right" style="margin: 10px 0px 0px;">
-                      <li>
-
-                                <form class="navbar-search">
-                                    <input type="text" class="search-query" placeholder="Search">
-                                </form>
-<li class="divider-vertical"></li>
-
+            <li>
+              <form class="navbar-search">
+                <input type="text" class="search-query" placeholder="Search">
+              </form>
+            <li class="divider-vertical"></li>
             </li>
           </ul>
+
+      </div> <!-- End of container head menu -->
     </div><!-- navbar-inner --> 
-  </div>
-    <!-- navbar navbar-inverse navbar-fixed-top -->
+  </div><!-- navbar navbar-inverse navbar-fixed-top -->
     
 <!-- END Menu Head -->
+
 <div id="ajax-error-msg" style="display: none" class="row-fluid"></div>
   <% if(flash[:notice]) %>
     <!--script type="text/javascript">
@@ -132,10 +130,8 @@
   <% end %>
 </div> <!--End of flash -->
 <div class="row-fluid">
-
 <%= yield %>
-</div> <!-- End of row -->
-
+</div><!-- End of row -->
 </div><!-- End of container -->
 
 </body>
