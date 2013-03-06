@@ -17,15 +17,15 @@ class PortfolioController < ApplicationController
     else 
       @portfolio.user_id = @user.id
     	
-      extension = params[:portfolio][:photo].original_filename.split(".").last
-      puts "extension = #{extension}"
-      if extension == "zip" or extension == "rar"
-        puts "zippppp"
-        @portfolio.zip = params[:portfolio][:photo] unless params[:portfolio].nil?
-      elsif  extension == "jpg" or extension == "png" or extension == "gif"
-        puts "photoooo"
+      # extension = params[:portfolio][:photo].original_filename.split(".").last
+      # puts "extension = #{extension}"
+      # if extension == "zip" or extension == "rar"
+      #   puts "zippppp"
+      #   @portfolio.zip = params[:portfolio][:photo] unless params[:portfolio].nil?
+      # elsif  extension == "jpg" or extension == "png" or extension == "gif"
+      #   puts "photoooo"
         @portfolio.photo = params[:portfolio][:photo] unless params[:portfolio].nil?
-      end
+      # end
     	if @portfolio.save
 
     		flash[:notice] = "Your attached file has been created."
