@@ -6,6 +6,14 @@
 <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 <script src="bootstrap/js/jquery-latest.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+	
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head>
  <body>
  <!-- Menu Head -->   
@@ -103,13 +111,13 @@
 
 
     <div class="container">
-     
+    
 <div class="span12">
-
 <div class="row">
 
+
 <ul class="nav nav-pills">
-  <li class="active">
+  <li>
     <a href="#">Popular</a>
   </li>
   <li><a href="#">Recent</a></li>
@@ -132,249 +140,83 @@
                 </ul>
 </li>
 
-</ul>
+<li class="active"><a href="#">Files</a></li>
 
+</ul>
 <hr>
-
-
 </div><!-- Row -->
+</div><!-- span 12 -->    
 
-<!-- <legend>Portfolio : Sort by Newest</legend> -->
-
-
-<ul class="thumbnails">
-
-<!-- One Row -->
-<div class="row">
-<!-- One Thumbnail label -->
-
-	<li class="span3">
-		<div class="thumbnail">
-			<a href="portfolioPersonalDetail.html">
-      			<img data-src="holder.js/300x200" src="images/portfolio/lhong.jpg">
-			</a>
-
-			<div class="caption">
-				<div align="right">
-					<p style="font-size:9pt;">
-                    	<i class="icon-eye-open"></i> 5193 &nbsp;
-                        <a href="#"><i class="icon-comment"></i> 11</a> &nbsp;
-						<a href="#"><i class="icon-thumbs-up"></i> 79</a>
-					</p>
-				</div> <!-- right -->
-			</div> <!-- caption -->
-		</div> <!-- thumbnail -->
     
-<!-- Profile Picture & Username -->
-<a href="#"><p style="padding-top:8px; padding-left:8px; font-size:9pt;"><img src="images/profile/palaloi.jpg" class="img-rounded" height="30" width="30" >&nbsp; Palaloi</p></a>
-    
-	</li>
-    
-<!-- End One Thumbnail label -->    
+      <div class="row">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">File</li>
+              <li class="active"><a href="messageIndex.html"><i class="icon-file" ></i> All</a></li>
+              <li><a href="messageCompose.html"><i class="icon-file" ></i> ZIP</a></li>
+              <li ><a href="messageSent.html"><i class="icon-list-alt" ></i> Document</a></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
 
-<!-- One Thumbnail label -->
+<legend>Files</legend>
+           <table class="table table-bordered table-hover">
+              <thead>
+               <tr style="background-color:#d1ecf5">
+                 <th style="width: 200px;">File Name</th>
+                 <th style="width: 200px;">From</th>
+                 <th>Kind</th>
+                 <th style="width: 200px;">Date Modified</th>
+                </tr>
+              </thead>
+              
+                <tr style="background-color:#e8f1f5">
+                 <td><img src="images/portfolio/files/icon-zip.png"> &nbsp; การบ้านวิชา PHP</td>
+                 <td>Palaloi</td>
+                 <td>archive ZIP</td>
+                 <td>ธันวาคม 10, 2011, 06:22:22 pm</td>
+                </tr>
+             
+		
+                <tr style="background-color:#e8f1f5">
+                 <td><img src="images/portfolio/files/icon-pdf.png"> &nbsp; Project วิชา Database</td>
+                 <td>อวบน้อย</td>
+                 <td>document </td>
+                 <td>ธันวาคม 10, 2011, 06:22:22 pm</td>
+               </tr>
+		
+             
+                <tr style="background-color:#e8f1f5">
+                <td><img src="images/portfolio/files/icon-file.png"> &nbsp; การบ้านวิชา PHP</td>
+                 <td>หน่อย</td>
+                 <td>document</td>
+                 <td>ธันวาคม 10, 2011, 06:22:22 pm</td>
+                </tr>
+              
+                <tr style="background-color:#e8f1f5">
+                <td><img src="images/portfolio/files/icon-file.png"> &nbsp; การบ้านวิชา PHP</td>
+                 <td>เชด</td>
+                 <td>document</td>
+                 <td>ธันวาคม 10, 2011, 06:22:22 pm</td>
+               </tr>
+		
+            </table>
 
-	<li class="span3">
-		<div class="thumbnail">
-			<a href="portfolioPersonalDetail.html">
-      			<img src="images/portfolio/be_careful_by_antontang-d2nq7yy.jpg">
-			</a>
+ 
+        </div><!--/span-->
+      </div><!--/row-->
 
-			<div class="caption">
-				<div align="right">					<p style="font-size:9pt;">
-                    	<i class="icon-eye-open"></i> 5193 &nbsp;
-                        <a href="#"><i class="icon-comment"></i> 11</a> &nbsp;
-						<a href="#"><i class="icon-thumbs-up"></i> 79</a>
-					</p>
-				</div> <!-- right -->
-			</div> <!-- caption -->
-		</div> <!-- thumbnail -->
-    
-<!-- Profile Picture & Username -->
-<a href="#"><p style="padding-top:8px; padding-left:8px; font-size:9pt;"><img src="images/profile/palaloi.jpg" class="img-rounded" height="30" width="30" >&nbsp; Palaloi</p></a>
-    
-	</li>
-    
-<!-- End One Thumbnail label -->        
-    
-<!-- One Thumbnail label -->
+      <hr>
 
-	<li class="span3">
-		<div class="thumbnail">
-			<a href="portfolioPersonalDetail.html">
-      			<img src="images/portfolio/My_beautiful_mama_and_me__by_SubterfugeMalaises.jpg">
-			</a>
+      <footer>
+        <p>&copy;IST, MUT</p>
+      </footer>
 
-			<div class="caption">
-				<div align="right">					<p style="font-size:9pt;">
-                    	<i class="icon-eye-open"></i> 5193 &nbsp;
-                        <a href="#"><i class="icon-comment"></i> 11</a> &nbsp;
-						<a href="#"><i class="icon-thumbs-up"></i> 79</a>
-					</p>
-				</div> <!-- right -->
-			</div> <!-- caption -->
-		</div> <!-- thumbnail -->
-    
-<!-- Profile Picture & Username -->
-<a href="#"><p style="padding-top:8px; padding-left:8px; font-size:9pt;"><img src="images/profile/palaloi.jpg" class="img-rounded" height="30" width="30" >&nbsp; Palaloi</p></a>
-    
-	</li>
-    
-<!-- End One Thumbnail label -->
-
-<!-- One Thumbnail label -->
-
-	<li class="span3">
-		<div class="thumbnail">
-			<a href="portfolioPersonalDetail.html">
-      			<img src="images/portfolio/My_beautiful_mama_and_me__by_SubterfugeMalaises.jpg">
-			</a>
-
-			<div class="caption">
-				<div align="right">					<p style="font-size:9pt;">
-                    	<i class="icon-eye-open"></i> 5193 &nbsp;
-                        <a href="#"><i class="icon-comment"></i> 11</a> &nbsp;
-						<a href="#"><i class="icon-thumbs-up"></i> 79</a>
-					</p>
-				</div> <!-- right -->
-			</div> <!-- caption -->
-		</div> <!-- thumbnail -->
-    
-<!-- Profile Picture & Username -->
-<a href="#"><p style="padding-top:8px; padding-left:8px; font-size:9pt;"><img src="images/profile/palaloi.jpg" class="img-rounded" height="30" width="30" >&nbsp; Palaloi</p></a>
-    
-	</li>
-    
-<!-- End One Thumbnail label -->      
-</div>
-<!-- End One ROw -->
-<p></p>
-<!-- One Thumbnail label -->
-
-<div class="row">
-
-	<li class="span3">
-		<div class="thumbnail">
-			<a href="portfolioPersonalDetail.html">
-      			<img data-src="holder.js/300x200" src="images/portfolio/512cd54840bdfc7d204519a8f631e258-d30dbru.jpg">
-			</a>
-
-			<div class="caption">
-				<div align="right">					<p style="font-size:9pt;">
-                    	<i class="icon-eye-open"></i> 5193 &nbsp;
-                        <a href="#"><i class="icon-comment"></i> 11</a> &nbsp;
-						<a href="#"><i class="icon-thumbs-up"></i> 79</a>
-					</p>
-				</div> <!-- right -->
-			</div> <!-- caption -->
-		</div> <!-- thumbnail -->
-    
-<!-- Profile Picture & Username -->
-<a href="#"><p style="padding-top:8px; padding-left:8px; font-size:9pt;"><img src="images/profile/palaloi.jpg" class="img-rounded" height="30" width="30" >&nbsp; Palaloi</p></a>
-    
-	</li>
-    
-<!-- End One Thumbnail label -->    
-
-<!-- One Thumbnail label -->
-
-	<li class="span3">
-		<div class="thumbnail">
-			<a href="portfolioPersonalDetail.html">
-      			<img src="images/portfolio/30c3421ac74596138614a160c1b0daab-d31sfml.jpg">
-			</a>
-
-			<div class="caption">
-				<div align="right">					<p style="font-size:9pt;">
-                    	<i class="icon-eye-open"></i> 5193 &nbsp;
-                        <a href="#"><i class="icon-comment"></i> 11</a> &nbsp;
-						<a href="#"><i class="icon-thumbs-up"></i> 79</a>
-					</p>
-				</div> <!-- right -->
-			</div> <!-- caption -->
-		</div> <!-- thumbnail -->
-    
-<!-- Profile Picture & Username -->
-<a href="#"><p style="padding-top:8px; padding-left:8px; font-size:9pt;"><img src="images/profile/palaloi.jpg" class="img-rounded" height="30" width="30" >&nbsp; Palaloi</p></a>
-    
-	</li>
-    
-<!-- End One Thumbnail label -->        
-    
-<!-- One Thumbnail label -->
-
-	<li class="span3">
-		<div class="thumbnail">
-			<a href="portfolioPersonalDetail.html">
-      			<img src="images/portfolio/7334925250_d2e507abd2_c.jpg">
-			</a>
-
-			<div class="caption">
-				<div align="right">					<p style="font-size:9pt;">
-                    	<i class="icon-eye-open"></i> 5193 &nbsp;
-                        <a href="#"><i class="icon-comment"></i> 11</a> &nbsp;
-						<a href="#"><i class="icon-thumbs-up"></i> 79</a>
-					</p>
-				</div> <!-- right -->
-			</div> <!-- caption -->
-		</div> <!-- thumbnail -->
-    
-<!-- Profile Picture & Username -->
-<a href="#"><p style="padding-top:8px; padding-left:8px; font-size:9pt;"><img src="images/profile/palaloi.jpg" class="img-rounded" height="30" width="30" >&nbsp; Palaloi</p></a>
-    
-	</li>
-    
-<!-- End One Thumbnail label -->
-       
-<!-- One Thumbnail label -->
-
-	<li class="span3">
-		<div class="thumbnail">
-			<a href="portfolioPersonalDetail.html">
-      			<img src="images/portfolio/7334925250_d2e507abd2_c.jpg">
-			</a>
-
-			<div class="caption">
-				<div align="right">					<p style="font-size:9pt;">
-                    	<i class="icon-eye-open"></i> 5193 &nbsp;
-                        <a href="#"><i class="icon-comment"></i> 11</a> &nbsp;
-						<a href="#"><i class="icon-thumbs-up"></i> 79</a>
-					</p>
-				</div> <!-- right -->
-			</div> <!-- caption -->
-		</div> <!-- thumbnail -->
-    
-<!-- Profile Picture & Username -->
-<a href="#"><p style="padding-top:8px; padding-left:8px; font-size:9pt;"><img src="images/profile/palaloi.jpg" class="img-rounded" height="30" width="30" >&nbsp; Palaloi</p></a>
-    
-	</li>
-    
-<!-- End One Thumbnail label -->      
-</div>    
-    
-</ul>
-
-
-<p>
-<div class="pagination pagination-centered">
-  <ul>
-    <li><a href="#">Prev</a></li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">Next</a></li>
-  </ul>
-</div>
-</p>
-
-<hr> 
-
-<footer>
-<p>&copy; IST, MUT</p>
-</footer>
-        </div><!--/span-->      
-      </div><!--/.container-->
+    </div><!--/.fluid-container-->
 
     <!-- Le javascript
     ================================================== -->

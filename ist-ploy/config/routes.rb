@@ -85,6 +85,7 @@ IstPloy::Application.routes.draw do
   match 'portfolio/:portfolio_id/save_detail' => "portfolio#upload_detail_save", :as => :portfolio_upload_save_detail
   match 'portfolio/:portfolio_id/show/:user_id' => "portfolio#show", :as => :portfolio_show
   match 'portfolio/feed' => "portfolio#feed", :as => :portfolio_feed
+  # match 'portfolio/feed_file' => "portfolio#feed_file", :as => :portfolio_feed
 
   root :to => 'user_sessions#new'
   

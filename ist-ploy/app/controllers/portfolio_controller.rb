@@ -80,4 +80,10 @@ class PortfolioController < ApplicationController
     #   format.json { render :json => {:portfolio => @portfolio } } 
     # end
   end
+
+  def feed_file
+    @title = "Portfolio Feed File"
+    @portfolio = Portfolio.order("created_at DESC")
+  end
+
 end
