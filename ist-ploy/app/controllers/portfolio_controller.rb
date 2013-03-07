@@ -81,16 +81,20 @@ class PortfolioController < ApplicationController
     @title = "Portfolio Feed"
     @categories = PortfolioCategory.order("name asc")
     @portfolio = Portfolio.order("created_at DESC")
+    @tags = Tag.all
     @action = "recent"
     if params[:category]
       @portfolio = Portfolio.find(:all, :conditions => {:portfolio_category_id => params[:category]}, :order => "created_at DESC")
       @action = "category"
+    elsif params[:tag]
+      @portfolio = Tag.find(params[:tag]).portfolios
+      @action = "tag"
     elsif params[:action]
       if params[:action] == "recent"
         @portfolio = Portfolio.order("created_at DESC")  
         @action = "recent"
       end
-    else 
+    else
       @portfolio = Portfolio.order("created_at DESC")
     end
     # respond_to do |format|
@@ -101,6 +105,7 @@ class PortfolioController < ApplicationController
   def feed_file
     @title = "Portfolio Feed File"
     @portfolio = Portfolio.order("created_at DESC")
+
   end
 
 end

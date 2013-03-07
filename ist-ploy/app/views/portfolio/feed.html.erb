@@ -42,11 +42,12 @@
           	<%end%>
           </ul>
 				</li>  	
-				<li class="dropdown">
+			<li <%if @action == "tag" %> class="dropdown active" <%else%> class="dropdown" <%end%> >
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hot Tags <b class="caret"></b></a>
           <ul class="dropdown-menu">
-          <li><a href="#">Project</a></li>
-            <li><a href="#">Cats</a></li>
+          	<% @tags.each do |tag| %>
+          		<li><%= link_to( tag.name , portfolio_feed_path(:tag => tag.id)) %></li>
+          	<%end%>
           </ul>
 				</li>	
 			</ul>

@@ -136,6 +136,8 @@ ActiveRecord::Schema.define(:version => 20130306160103) do
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
+    t.string   "firstname"
+    t.string   "lastname"
   end
 
   add_foreign_key "notifications", "conversations", :name => "notifications_on_conversation_id"

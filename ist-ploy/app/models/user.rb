@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
   	},
   	:default_url => "missing.png"
   
-  #attr_accessible :name, :login, :email, :password, :password_confirmation, :location, :web_site, :about_you, :photo
-  attr_accessible :displayname, :name, :surname, :username, :login, :email, :password, :password_confirmation, :location, :web_site, :about_you, :photo, :group
+  attr_accessible :name, :login, :email, :password, :password_confirmation, :location, :web_site, :about_you, :photo, :firstname, :lastname
+  # attr_accessible :displayname, :name, :surname, :username, :login, :email, :password, :password_confirmation, :location, :web_site, :about_you, :photo, :group
 
   acts_as_messageable
   
