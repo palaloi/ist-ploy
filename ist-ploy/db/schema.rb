@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303141510) do
+ActiveRecord::Schema.define(:version => 20130306160103) do
 
   create_table "conversations", :force => true do |t|
     t.string   "subject",    :default => ""
@@ -60,6 +60,10 @@ ActiveRecord::Schema.define(:version => 20130303141510) do
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
+    t.string   "zip_file_name"
+    t.string   "zip_content_type"
+    t.integer  "zip_file_size"
+    t.datetime "zip_updated_at"
   end
 
   create_table "receipts", :force => true do |t|
