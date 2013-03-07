@@ -117,7 +117,7 @@
     
 <!-- END Menu Head -->
 
-<div id="ajax-error-msg" style="display: none" class="row-fluid"></div>
+<div id="ajax-error-msg" style="display: none" class="row"></div>
   <% if(flash[:notice]) %>
     <!--script type="text/javascript">
       flashMessage.show('<%= flash[:notice] %>', "alert rails-flash alert-success");
@@ -137,9 +137,16 @@
     </div>
   <% end %>
 </div> <!--End of flash -->
-<div class="row-fluid">
+
+<!-- เอาแถวออกนะ
+<div class="row"> 
+-->
 <%= yield %>
-</div><!-- End of row -->
+<!-- 
+</div>
+-->
+<!-- End of row -->
+
 </div><!-- End of container -->
 
 </body>
