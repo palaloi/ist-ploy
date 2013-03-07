@@ -10,13 +10,13 @@ class Portfolio < ActiveRecord::Base
   	},
   	:default_url => "no_data.png"
     
-  has_attached_file :zip 
+  # has_attached_file :zip 
 
   attr_accessible :detail, :portfolio_category_id, :title, :user_id, :photo, :zip_file
 
-  # validates_format_of :photo_file_name, :with => %r{\.(jpg|png|gif)$}i 
-  validates_format_of :zip_file_name, :with => %r{\.(zip|rar)$}i, :allow_blank => true
+  validates_format_of :photo_file_name, :with => %r{\.(jpg|png|gif|zip|rar)$}i 
+  # validates_format_of :zip_file_name, :with => %r{\.(zip|rar)$}i, :allow_blank => true
 
   validates_attachment_size :photo, :in => 0.megabytes..3.megabytes
-  validates_attachment_size :zip, :in => 0.megabytes..3.megabytes
+  # validates_attachment_size :zip, :in => 0.megabytes..3.megabytes
 end
