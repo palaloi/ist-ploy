@@ -89,6 +89,24 @@
         padding-top: 10px;
         color: #dd390d; }
 </style>
+
+<!-- script jq change image background -->
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>  
+<script type="text/javascript">  
+$(function(){  
+    $(document.body).css("background","url(<?=$_COOKIE['bgSet']?>)");   
+    $(".setbg").click(function(){  
+        var days=10; // กำหนดจำนวนวันที่ต้องการให้จำค่า  
+        var date = new Date();  
+        date.setTime(date.getTime()+(days*24*60*60*1000));  
+        var expires = "; expires="+date.toGMTString();  
+        document.cookie = "bgSet=" +$(this).attr("rel")+ "; expires=" + expires + "; path=/";         
+        $(document.body).css("background","url("+$(this).attr("rel")+")");    
+    });   
+});  
+</script>  
+
 <div class="container">    
 	<%= render "profile_show" %>
 	<div class="row">
