@@ -13,113 +13,85 @@
     <div class="navbar-inner">
       <div class="container">
 
-        <%= link_to image_tag("logo.png", :border=>0), "#", :class => "brand"%>
+<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
 
-<!-- Profile Picture 40*40 pixel | Menu Head -->          
-        <div class="nav-collapse collapse">          
-          <ul class="nav pull-right">
-            <li class="dropdown">
-                            
-<!-- 
-แก้ยังไงค้าบ ทำไม่เป็นค้าบ พูดเลยยยย 
-<a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
--->
+        <%= link_to image_tag("logo.png", :border=>0), "#", :class => "brand"%>  
 
-                <%= link_to image_tag("profile/palaloi.jpg", :border=>0, :width => 40, :height => 40, :class => "img-rounded"), "#", :class=>"dropdown-toggle" %>
-
-<!-- นี่ด้วยอ่ะค้าบบบ 
-&nbsp;<b class="caret"></b>
-</a> 
--->
-                
-              <ul class="dropdown-menu">
-                <li class="nav-header">Profile's : พะละลอยด์</li>
-                <li class="divider"></li>
-                <li><a href="portfolioPersonal.html">My Portfolio</a></li>
-                <li><a href="profileEdit.html">Edit Profile</a></li>
-              </ul><!-- ul class="dropdown-menu" -->   
-            </li><!-- li class="dropdown" -->   
-          </ul><!-- ul class="nav pull-right" --> 
-
-<!-- แก้ตรงนี้ไว้ , รวบ ul ไป , ลบ div ออก-->
-          <ul class="nav pull-right" style="margin: 11px 0px 0px;">
-
-<!-- LOGIN            
-<li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Login </a></li>
---> 
-
-<!-- Portfolios -->                      
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolios <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="nav-header">ผลงานนักศึกษา</li>
-                  <li class="divider"></li>
-                  <li><a href="portfolio.html">Popular</a></li>
-                  <li><a href="#">Recent</a></li>
-                  <li><a href="#">Everyone</a></li>
-                  <li><a href="#">My Friends</a></li>
-                  <li><a href="#">Hot Tags</a></li>
-                  <li><a href="#"></a></li>
-                </ul><!-- ul class="dropdown-menu" -->   
-            </li><!-- li class="dropdown" -->  
-
-
-<!-- Message -->            
-<li><a href="#">Message </a></li>
-
-<!-- News -->     
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li class="nav-header">ข่าว/ประกาศ</li>
-                <li class="divider"></li>
-                <li><a href="news.html">ข่าวล่าสุด</a></li>
-                <li><a href="newsActivities.html">ข่าวกิจกรรม</a></li>
-                <li><a href="#">ข่าวภายใน</a></li>
-                <li><a href="#">ข่าวภายนอก</a></li>
-                <li><a href="newsContest.html">ข่าวงานประกวด</a></li>
-                <li><a href="#">ข่าวรับสมัครงาน</a></li>
-                <li><a href="#"></a></li>
-              </ul>
-            </li>
-
-<!-- Registration -->                          
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Registration <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li class="nav-header">นาถพร ประวันนา</li>
-                <li class="divider"></li>
-                <li><a href="regisStdmars.html">View Profile</a></li>
-                <li><a href="regisTranscript.html">View Transcript</a></li>
-                <li><a href="regisTimetable.html">View Timetable</a></li>
-              </ul><!-- ul class="dropdown-menu" -->
-            </li><!-- li class="dropdown" -->
-
-          </ul><!-- ul class="nav pull-right" -->
-
-
-        </div><!-- div class="nav-collapse collapse" -->
-
-<!-- LOGIN -->
-
-            
-          
+<div class="nav-collapse collapse">
+  <ul class="nav pull-right">
 
 <!-- Seaechhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh -->
-          <ul class="nav pull-right" style="margin: 10px 0px 0px;">
-            <li>
-              <form class="navbar-search">
-                <input type="text" class="search-query" placeholder="Search">
-              </form>
-            <li class="divider-vertical"></li>
-            </li>
-          </ul>
+    <li style="margin: 10px 0px 0px;">
+      <form class="navbar-search">
+        <input type="text" class="search-query" placeholder="Search" style="width: 140px;">
+      </form>
+    <li class="divider-vertical"></li>
+    </li>
+
+<!-- Portfolios -->                      
+    <li class="dropdown" style="margin: 10px 0px 0px;">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolios <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li class="nav-header">ผลงานนักศึกษา</li>
+          <li class="divider"></li>
+          <li><a href="portfolio.html">Popular</a></li>
+          <li><a href="#">Recent</a></li>
+          <li><a href="#">Everyone</a></li>
+          <li><a href="#">My Friends</a></li>
+          <li><a href="#">Hot Tags</a></li>
+          <li><a href="#"></a></li>
+        </ul><!-- ul class="dropdown-menu" -->   
+    </li><!-- li class="dropdown" -->  
+
+<!-- Message -->            
+    <li style="margin: 10px 0px 0px;"><a href="#">Message </a></li>
+
+<!-- News -->     
+    <li class="dropdown" style="margin: 10px 0px 0px;">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li class="nav-header">ข่าว/ประกาศ</li>
+        <li class="divider"></li>
+        <li><a href="news.html">ข่าวล่าสุด</a></li>
+        <li><a href="newsActivities.html">ข่าวกิจกรรม</a></li>
+        <li><a href="#">ข่าวภายใน</a></li>
+        <li><a href="#">ข่าวภายนอก</a></li>
+        <li><a href="newsContest.html">ข่าวงานประกวด</a></li>
+        <li><a href="#">ข่าวรับสมัครงาน</a></li>
+        <li><a href="#"></a></li>
+      </ul>
+    </li>
+
+<!-- Registration -->                          
+    <li class="dropdown" style="margin: 10px 0px 0px;">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Registration <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li class="nav-header">นาถพร ประวันนา</li>
+        <li class="divider"></li>
+        <li><a href="regisStdmars.html">View Profile</a></li>
+        <li><a href="regisTranscript.html">View Transcript</a></li>
+        <li><a href="regisTimetable.html">View Timetable</a></li>
+      </ul><!-- ul class="dropdown-menu" -->
+    </li><!-- li class="dropdown" -->
+
+    <li class="dropdown">
+      <%= link_to image_tag("profile/palaloi.jpg", :border=>0, :width => 40, :height => 40, :class => "img-rounded"), "#", :class=>"dropdown-toggle" %>
+    </li><!-- li class="dropdown" -->   
+  </ul>
+</div>
 
       </div> <!-- End of container head menu -->
     </div><!-- navbar-inner --> 
   </div><!-- navbar navbar-inverse navbar-fixed-top -->
     
 <!-- END Menu Head -->
+
+
+
 
 <div id="ajax-error-msg" style="display: none" class="row"></div>
   <% if(flash[:notice]) %>
