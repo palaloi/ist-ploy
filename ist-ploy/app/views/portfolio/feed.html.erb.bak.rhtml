@@ -1,0 +1,86 @@
+<style type="text/css">
+.thumbnail {
+	background-color: white;
+	display: block;
+	padding: 6px;
+	line-height: 15px;
+	border: 1px solid #DDD;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.055);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+.user-link {
+	padding-top:8px; 
+	padding-left:8px;
+	padding-bottom: 20px;
+}
+</style>
+<div class="container">
+	<div class="span12">
+		<div class="row">
+			<ul class="nav nav-pills">
+			  <li >
+			    <a href="#">Popular</a>
+			  </li>
+			  <li <%if @action == "recent" %> class="active" <%end%> >
+			  	<%= link_to("Recent", portfolio_feed_path(:action => "recent")) %>
+			  </li>
+			  <li><a href="#">Everyone</a></li>
+			  <li><a href="#">My Friends</a></li>
+				<li <%if @action == "category" %> class="dropdown active" <%else%> class="dropdown" <%end%> >
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+          	<% @categories.each do |c| %>
+          		<li><%= link_to( c.name , portfolio_feed_path(:category => c.id)) %></li>
+          	<%end%>
+          </ul>
+				</li>  	
+			<li <%if @action == "tag" %> class="dropdown active" <%else%> class="dropdown" <%end%> >
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hot Tags <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+          	<% @tags.each do |tag| %>
+          		<li><%= link_to( tag.name , portfolio_feed_path(:tag => tag.id)) %></li>
+          	<%end%>
+          </ul>
+				</li>	
+			</ul>
+			<hr>
+		</div><!-- Row -->
+		<ul class="thumbnails">
+			<div class="row">
+				<% @portfolio.each do |port| %>
+				<li class="span3">
+					<div class="thumbnail">
+						<center>
+						<%= link_to(image_tag(port.photo.url(:small)), 
+        				portfolio_show_path(:user_id => port.user_id, :portfolio_id => port.id), :class => "image-center")%>
+        				</center>
+						<div class="caption">
+							<div align="right">
+								<p style="font-size:9pt;">
+                  <i class="icon-eye-open"></i> 5193 &nbsp;
+                  <a href="#"><i class="icon-comment"></i> 11</a> &nbsp;
+									<a href="#"><i class="icon-thumbs-up"></i> 79</a>
+								</p>
+							</div> <!-- right -->
+						</div> <!-- caption -->
+					</div> <!-- thumbnail -->
+					<!-- Profile Picture & Username -->
+					<% user = User.find(port.user_id) %>
+					<div class="user-link">
+					<%= link_to(image_tag(user.photo.url(:thumb), :class => "img-rounded", :height => 30, :width => 30) + " " + user.name, 
+        		show_user_path(:user_id => user.id), :style => "")%>
+        	</div>
+    		</li>
+    		<% end %>
+			</div><!-- Row -->
+		</ul>
+	</div><!--/span12-->      
+</div><!--/.container-->
