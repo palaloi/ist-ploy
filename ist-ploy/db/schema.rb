@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303141510) do
+ActiveRecord::Schema.define(:version => 20130306160103) do
 
   create_table "conversations", :force => true do |t|
     t.string   "subject",    :default => ""
@@ -60,6 +60,10 @@ ActiveRecord::Schema.define(:version => 20130303141510) do
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
+    t.string   "zip_file_name"
+    t.string   "zip_content_type"
+    t.integer  "zip_file_size"
+    t.datetime "zip_updated_at"
   end
 
   create_table "receipts", :force => true do |t|
@@ -89,6 +93,12 @@ ActiveRecord::Schema.define(:version => 20130303141510) do
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "skills_users", :force => true do |t|
+    t.integer "user_id"
+    t.integer "skill_id"
+    t.integer "skill_value"
   end
 
   create_table "tags", :force => true do |t|
@@ -132,6 +142,12 @@ ActiveRecord::Schema.define(:version => 20130303141510) do
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
+  end
+
+  create_table "users_skills", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "skill_id"
+    t.integer "skill_value"
   end
 
   add_foreign_key "notifications", "conversations", :name => "notifications_on_conversation_id"
