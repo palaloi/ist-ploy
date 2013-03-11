@@ -20,3 +20,8 @@ PortfolioCategory.create(:name => "Film")
 Tag.create(:name => "ThisIsATestTag")
 Tag.create(:name => "JustAnotherTest")
 Tag.create(:name => "PushTestAgain")
+
+UserType.create(:name => "Admin")
+UserType.create(:name => "Teacher")
+UserType.create(:name => "Staff")
+UserType.create(:name => "Student")

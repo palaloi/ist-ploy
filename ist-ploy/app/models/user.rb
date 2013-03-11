@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
       :small  => "400x400>" 
   	},
   	:default_url => "missing.png"
+  belongs_to :user_type
   
   attr_accessible :name, :login, :email, :password, :password_confirmation, :location, :web_site, :about_you, :photo, :firstname, :lastname
   # attr_accessible :displayname, :name, :surname, :username, :login, :email, :password, :password_confirmation, :location, :web_site, :about_you, :photo, :group

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130307032636) do
+ActiveRecord::Schema.define(:version => 20130311142600) do
 
   create_table "conversations", :force => true do |t|
     t.string   "subject",    :default => ""
@@ -117,6 +117,12 @@ ActiveRecord::Schema.define(:version => 20130307032636) do
   add_index "user_sessions", ["session_id"], :name => "index_user_sessions_on_session_id"
   add_index "user_sessions", ["updated_at"], :name => "index_user_sessions_on_updated_at"
 
+  create_table "user_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name",                :default => "", :null => false
     t.string   "login",                               :null => false
@@ -144,6 +150,7 @@ ActiveRecord::Schema.define(:version => 20130307032636) do
     t.integer  "photo_file_size"
     t.string   "firstname"
     t.string   "lastname"
+    t.integer  "user_type_id"
   end
 
   create_table "users_skills", :id => false, :force => true do |t|
