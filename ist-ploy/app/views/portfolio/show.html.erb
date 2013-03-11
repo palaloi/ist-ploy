@@ -88,14 +88,88 @@
         margin: 10px 0 0 30px;
         padding-top: 10px;
         color: #dd390d; }
+
+/* switcher */
+.switche-slyle{
+  position: relative;
+  z-index: 999;
+  }
+.switche-color{
+  position: fixed;
+  top: 273px;
+  left: 0px;
+  height: 36px;
+  overflow: hidden;
+  float: left;
+  }
+.switche-color a{
+  float: left;
+  overflow: hidden;
+  height: 36px;
+  width: 22px;
+  }
+.color-button{
+  width: 36px;
+  height: 36px;
+  float: left;
+  overflow: hidden;
+  }
+.color-case{
+  float: left;
+  overflow: hidden;
+  }
+.switche-pattern{
+  position: fixed;
+  top: 219px;
+  left: 0px;
+  height: 36px;
+  overflow: hidden;
+  float: left;
+  }
+.switche-pattern a{
+  float: left;
+  overflow: hidden;
+  height: 36px;
+  width: 22px;
+  }
+.pattern-button{
+  width: 36px;
+  height: 36px;
+  float: left;
+  overflow: hidden;
+  }
+.pattern-case{
+  float: left;
+  overflow: hidden;
+  }
+/* <= switcher */
+        
 </style>
+
+<!-- script jq change image background -->
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>  
+<script type="text/javascript">  
+$(function(){  
+    $(document.body).css("background","url(<?=$_COOKIE['bgSet']?>)");   
+    $(".setbg").click(function(){  
+        var days=10; // กำหนดจำนวนวันที่ต้องการให้จำค่า  
+        var date = new Date();  
+        date.setTime(date.getTime()+(days*24*60*60*1000));  
+        var expires = "; expires="+date.toGMTString();  
+        document.cookie = "bgSet=" +$(this).attr("rel")+ "; expires=" + expires + "; path=/";         
+        $(document.body).css("background","url("+$(this).attr("rel")+")");    
+    });   
+});  
+</script>  
+
 <div class="container">    
 	<%= render "profile_show" %>
 	<div class="row">
     <div class="span3">
     	<div class="well sidebar-nav">
     		<div class="list-widget">
-	        <ul>
+	        <ul class="nav nav-list">
 						<li>
 							<label><strong>Information</strong></label>
 						</li>
@@ -140,6 +214,24 @@
 				</div>
 			</p>
 	    <hr>
+
+
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+
+<a class="addthis_button_tweet"></a>
+<!-- <a class="addthis_button_google_plusone"></a> -->
+<a class="addthis_button_pinterest_pinit"></a>
+<!-- <a class="addthis_counter addthis_pill_style"></a>
+</div> -->
+<script type="text/javascript">var- addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513a1b2442f06d8c"></script>
+<!-- AddThis Button END -->
+
+
+
+
 	    <div id="disqus_thread"></div>
 	    <script type="text/javascript">
 	        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

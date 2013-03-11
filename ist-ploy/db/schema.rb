@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130306160103) do
+ActiveRecord::Schema.define(:version => 20130307032636) do
 
   create_table "conversations", :force => true do |t|
     t.string   "subject",    :default => ""
@@ -142,6 +142,8 @@ ActiveRecord::Schema.define(:version => 20130306160103) do
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
+    t.string   "firstname"
+    t.string   "lastname"
   end
 
   create_table "users_skills", :id => false, :force => true do |t|

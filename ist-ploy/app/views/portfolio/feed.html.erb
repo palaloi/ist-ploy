@@ -42,11 +42,12 @@
           	<%end%>
           </ul>
 				</li>  	
-				<li class="dropdown">
+			<li <%if @action == "tag" %> class="dropdown active" <%else%> class="dropdown" <%end%> >
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hot Tags <b class="caret"></b></a>
           <ul class="dropdown-menu">
-          <li><a href="#">Project</a></li>
-            <li><a href="#">Cats</a></li>
+          	<% @tags.each do |tag| %>
+          		<li><%= link_to( tag.name , portfolio_feed_path(:tag => tag.id)) %></li>
+          	<%end%>
           </ul>
 				</li>	
 			</ul>
@@ -61,13 +62,18 @@
 						<%= link_to(image_tag(port.photo.url(:small)), 
         				portfolio_show_path(:user_id => port.user_id, :portfolio_id => port.id), :class => "image-center")%>
         				</center>
-						<div class="caption">
-							<div align="right">
-								<p style="font-size:9pt;">
-                  <i class="icon-eye-open"></i> 5193 &nbsp;
-                  <a href="#"><i class="icon-comment"></i> 11</a> &nbsp;
-									<a href="#"><i class="icon-thumbs-up"></i> 79</a>
-								</p>
+						<!-- <div class="caption"> -->
+						<div class="">	
+							<div align="left"  style="padding-top:12px">
+
+<!-- AddThis Button BEGIN -->
+
+<a class="addthis_button_facebook_like" fb:like:layout="button_count" ></a>
+
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513a1b2442f06d8c"></script>
+<!-- AddThis Button END -->
+
 							</div> <!-- right -->
 						</div> <!-- caption -->
 					</div> <!-- thumbnail -->
