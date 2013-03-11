@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   	},
   	:default_url => "missing.png"
   belongs_to :user_type
+  # validates_uniqueness_of :email, :allow_blank => true, :allow_nil => true
   
   attr_accessible :name, :login, :email, :password, :password_confirmation, :location, :web_site, :about_you, :photo, :firstname, :lastname
   # attr_accessible :displayname, :name, :surname, :username, :login, :email, :password, :password_confirmation, :location, :web_site, :about_you, :photo, :group

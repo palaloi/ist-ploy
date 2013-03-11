@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
   #filter_parameter_logging :password, :password_confirmation # there are underscores  
 
   helper_method :current_user_session, :current_user
+  def raise_with_flash_error(message)
+    flash[:error_notice]   = message[:flash].presence || message[:error].presence if message.is_a?(Hash)
+    flash[:error_notice] ||= message.to_s
+    raise message.is_a?(Hash) ? message[:error] : message.to_s
+  end
 
   private
     def current_user_session
