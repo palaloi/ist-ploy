@@ -9,6 +9,23 @@ class AdminController < ApplicationController
 	def new_user
 		@title = "Add new user"
 		@users = User.order("created_at desc")
+		@action = "all"
+		if params[:action_link]
+			if params[:action_link] == "all"
+				@users = User.order("created_at desc")
+				@action = "all"
+			elsif params[:action_link] == "student"
+				@users = User.find(:all, :conditions => {:user_type_id => UserType.find_by_name("Student").id}, :order => "created_at desc")
+				@action = "student"
+			elsif params[:action_link] == "teacher"
+				@users = User.find(:all, :conditions => {:user_type_id => UserType.find_by_name("Teacher").id}, :order => "created_at desc")
+				@action = "teacher"
+			elsif params[:action_link] == "staff"
+				@users = User.find(:all, :conditions => {:user_type_id => UserType.find_by_name("Staff").id}, :order => "created_at desc")
+				@action = "staff"
+			end
+				
+		end
 	end
 	def create_user
 		uploaded_user = params[:new_user]
@@ -21,7 +38,7 @@ class AdminController < ApplicationController
 			else 
 				CSV.foreach(uploaded_user.tempfile, :headers => true) do |row|
 				  # Moulding.create!(row.to_hash)
-				  puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! #{row['login']}"
+				  # puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! #{row['login']}"
 				  user = User.new
 				  user.login = row['login']
 				  user.password = row['password']
