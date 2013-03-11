@@ -51,8 +51,9 @@
           </ul>
 				</li>	
 			</ul>
-			<hr>
+<hr>			
 		</div><!-- Row -->
+		
 		<ul class="thumbnails">
 			<div class="row">
 				<% @portfolio.each do |port| %>
@@ -63,19 +64,19 @@
         				portfolio_show_path(:user_id => port.user_id, :portfolio_id => port.id), :class => "image-center")%>
         				</center>
 						<!-- <div class="caption"> -->
-						<div class="">	
-							<div align="left"  style="padding-top:12px">
+						
+							<div align="right" style="padding-top:12px">
 
 <!-- AddThis Button BEGIN -->
-
 <a class="addthis_button_facebook_like" fb:like:layout="button_count" ></a>
+
 
 <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513a1b2442f06d8c"></script>
 <!-- AddThis Button END -->
 
 							</div> <!-- right -->
-						</div> <!-- caption -->
+						
 					</div> <!-- thumbnail -->
 					<!-- Profile Picture & Username -->
 					<% user = User.find(port.user_id) %>
