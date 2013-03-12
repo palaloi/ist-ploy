@@ -1,13 +1,50 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
  <head>
-  <title>News Activities</title>
+  <title>Portfolio : Feed</title>
   
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> 
 <script type="text/javascript"> 
+$(document).ready(function() {	
+
+//source file is https://docs.google.com/spreadsheet/ccc?key=0Ak0qDiMLT3XddHlNempadUs1djdkQ0tFLWF6ci1rUUE	
+
+$(function listBooks() {	
+
+$.getJSON( "https://spreadsheets.google.com/feeds/list/0Ak0qDiMLT3XddHlNempadUs1djdkQ0tFLWF6ci1rUUE/od6/public/values?alt=json-in-script&callback=?",
+
+	function (data) {	
+
+		$('div#book-list').append('<ul class="items"></ul>');
+
+		$.each(data.feed.entry, function(i,entry) {	
+
+			var item = '<span style="display:none">' + entry.id.$t + '</span>';	
+
+			item += '<img src="http://covers.openlibrary.org/b/isbn/' + entry.gsx$isbn.$t + '-S.jpg"/>';
+
+			item += '<span class="meta"><a href="http://www.worldcat.org/isbn/' + entry.gsx$isbn.$t + '">' + entry.title.$t + '</a>';	
+
+			item += '<br/>Author: ' + entry.gsx$author.$t;	
+
+			if (entry.gsx$notes.$t) {	
+
+				item += '<br/>Description: ' + entry.gsx$notes.$t;	
+
+			}	
+
+			$('.items').append('<li>' + item + '</span></li>');	
+
+			});
+
+		});
+
+	});
+
+});
+
 
 </script>
-
-
 
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">  
@@ -16,6 +53,21 @@
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head>
  <body>
+ 
+
+	<h1>New Books We Recommend</h1> 
+	<div id="book-list">
+    <ul>
+    <li>
+<span style="display:none;">...</span>
+<img src="http://covers.openlibrary.org/b/isbn/0151900558-S.jpg">
+<span class="meta">
+<a href="http://www.worldcat.org/isbn/0151900558">This house of sky : landscapes of a Western mind</a><br>Author: Ivan Doig
+</span>
+</li>
+</ul>
+    </div> 
+ 
  
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">

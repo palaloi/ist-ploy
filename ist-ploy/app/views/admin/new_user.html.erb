@@ -57,10 +57,12 @@ input[type=button] {
         <table class="table table-hover"  style="background-color:#FFF; color: #333; width:100%;">
           <thead>
             <td>&nbsp</td>
-            <td>Login</td>
-            <td>Firstname</td>
-            <td>User type</td>
-            <td>E-mail</td>
+            <td><h3>Login</h3></td>
+            <td><h3>Firstname</h3></td>
+            <td><h3>Lastname</h3></td>
+            <td><h3>E-mail</h3></td>
+            <td><h3>User type</h3></td>
+            
           </thead>
           <tbody>
         <% @users.each do |user| %>
@@ -68,8 +70,10 @@ input[type=button] {
             <td>&nbsp</td>
             <td> <%= user.login %></td>
             <td> <%= user.firstname %></td>
-            <td> <%= user.user_type.name unless user.user_type.nil?%>
+            <td> <%= user.lastname %></td>
             <td> <%= user.email %></td>
+            <td> <%= user.user_type.name unless user.user_type.nil?%>
+            
           </tr>
         <%end%>
           </tbody>
