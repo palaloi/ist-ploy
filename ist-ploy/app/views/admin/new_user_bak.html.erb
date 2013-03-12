@@ -27,21 +27,7 @@ input[type=button] {
 </STYLE>
 
 <div class="container">
-  <div class="row">
-    <div class="span3">
-      <div class="well sidebar-nav">
-        <ul class="nav nav-list">
-          <li class="nav-header">Manage Data for ADMIN</li>
-          <li><a href="../UI/interface/admin.html"><i class="icon-home" ></i> Hello admin!</a></li>
-          <li class="active"><a href="#"><i class="icon-user" ></i> Users</a></li>
-          <li><a href="#"><i class="icon-file" ></i> Portfolios</a></li>
-          <li><a href="#"><i class="icon-comment" ></i> Messages</a></li>
-        </ul>
-      </div><!--/.well -->
-    </div><!--/.span3 -->
-
-    <div class="span9">
-      <div align="center">
+      <div class="jumbotron" align="center">
         <h1>You can upload .csv file for add new users!</h1>
         <p><img src="/assets/csvicon.png"></p>
         <!-- <p class="lead">select your file :)</p> -->
@@ -53,9 +39,7 @@ input[type=button] {
           <br><br>
           <%= button_tag "Upload User (CSV format)", :class => "btn btn-large btn-success btn-block"%>
         </div><!-- class="well" -->
-      </div><!-- class="center"  -->
-    </div><!-- class="span9"  -->
-  </div><!-- class="row"  -->
+      </div><!-- class="jumbotron"  -->
 <%end %>
 <hr>
   <div class="span12">
