@@ -31,6 +31,15 @@ class ApplicationController < ActionController::Base
         return false
       end
     end
+    def require_admin
+      @user = current_user
+      if @user.user_type != UserType.find_by_name("Admin")
+        store_location
+        flash[:notice] = "You must be logged in as Admin to see this page."
+        redirect_to new_user_session_url
+        return false
+      end
+    end
 
     def require_no_user
       logger.debug "ApplicationController::require_no_user"

@@ -1,6 +1,8 @@
 
 class AdminController < ApplicationController
 	require 'csv'
+	before_filter :require_user, :require_admin
+
 	def index
 		@user = User.find(params[:user_id])
 		@title = "Administration"
