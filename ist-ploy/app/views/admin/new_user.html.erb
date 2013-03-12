@@ -1,38 +1,80 @@
-<div class="container">
-  <div class="span12">
-  <%= form_tag({:controller => "admin", :action=>'create_user'},:multipart=>true) do %>
-    <div style="text-align:center">
-      <div style="display:inline-block">
-        <%= file_field_tag 'new_user' %>
-        <%= button_tag "Upload Student (CSV format)", :class => "btn btn-primary"%>
-      </div>
-    </div>
-  <%end %>
-  <div style="clear: both;">
-  <div class="row">
-<ul class="nav nav-pills">
-  <li <% if @action == "all"%> class="active" <%end%> ><%= link_to "All",  {:controller => "admin", :action => "new_user", :action_link => "all" } %></li>
-  <li <% if @action == "student"%> class="active" <%end%>> <%= link_to "Student",  {:controller => "admin", :action => "new_user", :action_link => "student" } %></li>
-  <li <% if @action == "teacher"%> class="active" <%end%>> <%= link_to "Teacher",  {:controller => "admin", :action => "new_user", :action_link => "teacher" } %> </li>
-  <li <% if @action == "staff"%> class="active" <%end%>> <%= link_to "Staff",  {:controller => "admin", :action => "new_user", :action_link => "staff" } %> </li>
-</ul>
+<STYLE TYPE="text/css">
+<!--
+input {
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    
+    border: 1px solid #ccc;
+    font-size: 14pt;
+    padding: 5px 10px;
+}
 
-    <table class="table table-striped table-bordered">
-      <thead>
-        <td>Login</td>
-        <td>Firstname</td>
-        <td>User type</td>
-      </thead>
-      <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td> <%= user.login %></td>
-        <td> <%= user.firstname %></td>
-        <td> <%= user.user_type.name unless user.user_type.nil?%></td>
-      </tr>
-    <%end%>
-      </tbody>
-    </table>
-  </div>
-</div> <!-- span 12 -->
+input[type=button] {
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    
+    border: 1px solid #ccc;
+    font-size: 14pt;
+    padding: 5px 10px;
+}
+-->
+</STYLE>
+
+<div class="container">
+      <div class="jumbotron" align="center">
+        <h1>You can upload .csv file for add new users!</h1>
+        <p><img src="/assets/csvicon.png"></p>
+        <!-- <p class="lead">select your file :)</p> -->
+        <br>
+        <%= form_tag({:controller => "admin", :action=>'create_user'},:multipart=>true) do %>
+
+        <div class="well" style="max-width: 400px; margin: 0 auto 10px;">
+          <%= file_field_tag 'new_user', :class => "" %>
+          <br><br>
+          <%= button_tag "Upload User (CSV format)", :class => "btn btn-large btn-success btn-block"%>
+        </div><!-- class="well" -->
+      </div><!-- class="jumbotron"  -->
+<%end %>
+<hr>
+  <div class="span12">
+    <div style="clear: both;">
+      <div class="row">
+        <ul class="nav nav-pills">
+          <li <% if @action == "all"%> class="active" <%end%> ><%= link_to "All",  {:controller => "admin", :action => "new_user", :action_link => "all" } %></li>
+          <li <% if @action == "student"%> class="active" <%end%>> <%= link_to "Student",  {:controller => "admin", :action => "new_user", :action_link => "student" } %></li>
+          <li <% if @action == "teacher"%> class="active" <%end%>> <%= link_to "Teacher",  {:controller => "admin", :action => "new_user", :action_link => "teacher" } %> </li>
+          <li <% if @action == "staff"%> class="active" <%end%>> <%= link_to "Staff",  {:controller => "admin", :action => "new_user", :action_link => "staff" } %> </li>
+        </ul>
+      </div> <!-- class="row" -->
+
+      <div class="row">
+        <table class="table table-hover"  style="background-color:#FFF; color: #333; width:100%;">
+          <thead>
+            <td>&nbsp</td>
+            <td>Login</td>
+            <td>Firstname</td>
+            <td>User type</td>
+            <td>E-mail</td>
+          </thead>
+          <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td>&nbsp</td>
+            <td> <%= user.login %></td>
+            <td> <%= user.firstname %></td>
+            <td> <%= user.user_type.name unless user.user_type.nil?%>
+            <td> <%= user.email %></td>
+          </tr>
+        <%end%>
+          </tbody>
+        </table>
+      </div><!-- class="row" -->
+    <div> <!-- clear: both; -->
+  </div> <!-- span 12 -->
 </div> <!-- /container -->
