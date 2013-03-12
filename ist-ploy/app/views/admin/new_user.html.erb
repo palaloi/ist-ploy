@@ -11,10 +11,10 @@
   <div style="clear: both;">
   <div class="row">
 <ul class="nav nav-pills">
-  <li class="active"><a href="#">All</a></li>
-  <li><a href="#">Student</a></li>
-  <li><a href="#">Teacher</a></li>
-  <li><a href="#">Staff</a></li>
+  <li <% if @action == "all"%> class="active" <%end%> ><%= link_to "All",  {:controller => "admin", :action => "new_user", :action_link => "all" } %></li>
+  <li <% if @action == "student"%> class="active" <%end%>> <%= link_to "Student",  {:controller => "admin", :action => "new_user", :action_link => "student" } %></li>
+  <li <% if @action == "teacher"%> class="active" <%end%>> <%= link_to "Teacher",  {:controller => "admin", :action => "new_user", :action_link => "teacher" } %> </li>
+  <li <% if @action == "staff"%> class="active" <%end%>> <%= link_to "Staff",  {:controller => "admin", :action => "new_user", :action_link => "staff" } %> </li>
 </ul>
 
     <table class="table table-striped table-bordered">
