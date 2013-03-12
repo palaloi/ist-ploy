@@ -105,7 +105,16 @@ class PortfolioController < ApplicationController
   def feed_file
     @title = "Portfolio Feed File"
     @portfolio = Portfolio.order("created_at DESC")
-
   end
-
+  def destroy
+    @portfolio = Portfolio.find(params[:portfolio_id])
+    name = @portfolio.title unless @portfolio.nil?
+    if @portfolio.destroy
+      flash[:notice] = "Successfully delete portfolio named #{name}."
+      redirect_to :action => :feed
+    else
+      flash[:error_notice] = "Could not delete portfolio named #{@portfolio.title}."
+      render :action => :show , :params => {:user_id => current_user.id, :portfolio_id => @portfolio.id}
+    end
+  end
 end

@@ -11,7 +11,7 @@ class UserSessionsController < ApplicationController
     if @user_session.save
       flash[:notice] = "Login successful!"
       if current_user.user_type.name == "Admin"
-        redirect_to admin_index_path(@current_user.id)
+        redirect_to admin_new_user_path
       else 
         redirect_back_or_default account_url(@current_user)
       end
