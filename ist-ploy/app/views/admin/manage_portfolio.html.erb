@@ -41,19 +41,58 @@ input[type=button] {
     </div><!--/.span3 -->
 
     <div class="span9">
-      <div align="center">
-        <h1>You can upload .csv file for add new users!</h1>
-        <p><img src="/assets/csvicon.png"></p>
-        <!-- <p class="lead">select your file :)</p> -->
-        <br>
-        <%= form_tag({:controller => "admin", :action=>'create_user'},:multipart=>true) do %>
+ 
+ <div class="row-fluid">
 
-        <div class="well" style="max-width: 400px; margin: 0 auto 10px;">
-          <%= file_field_tag 'new_user', :class => "" %>
-          <br><br>
-          <%= button_tag "Upload User (CSV format)", :class => "btn btn-large btn-success btn-block"%>
-        </div><!-- class="well" -->
-      </div><!-- class="center"  -->
+           <table class="table table-bordered table-hover" style="background-color:#FDFDFD">
+              <thead>
+               <tr>
+                 <th colspan="5"><h3>Portfolio Files</h3></th>
+                </tr>
+              </thead>           
+              <thead>
+               <tr>
+                 <th style="width: 25%;">Title</th>
+                 <th>Detail</th>
+                 <th style="width: 15%;">Category</th>
+                 <th style="width: 10%;">Date</th>
+                 <th style="width: 5%;"><label class="checkbox"><input type="checkbox"></label></th>
+               </tr>
+              </thead>
+                <tr>
+                 <td>มุมมหาชน</td>
+                 <td>เสาชิงช้า</td>
+                 <td>Photography</td>
+                 <td>09/03/2013</td>
+                  <td><label class="checkbox"><input type="checkbox"></label></td>
+               </tr>
+                <tr>
+                 <td>มุมมหาชน</td>
+                 <td>เสาชิงช้า</td>
+                 <td>Photography</td>
+                 <td>09/03/2013</td>
+                  <td><label class="checkbox"><input type="checkbox"></label></td>
+               </tr>
+    
+              <tbody>
+                <tr>
+                 <td>มุมมหาชน</td>
+                 <td>เสาชิงช้า</td>
+                 <td>Photography</td>
+                 <td>09/03/2013</td>
+                  <td><label class="checkbox"><input type="checkbox"></label></td>
+               </tr>
+              </tbody>
+    
+            </table>
+
+ 
+
+<div  align="right"><button class="btn btn-danger" type="button">Delete Message</button></div>
+
+</div><!-- Row --> 
+
+
     </div><!-- class="span9"  -->
   </div><!-- class="row"  -->
 <%end %>
