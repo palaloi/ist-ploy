@@ -90,7 +90,8 @@ IstPloy::Application.routes.draw do
 
   match 'admin/new_user' => "admin#new_user", :as => :admin_new_user
   match 'admin/create_user' => "admin#create_user", :as => :admin_create_user
-  match 'admin/:user_id' => "admin#index", :as => :admin_index
+  match 'admin/manage_portfolio' => "admin#manage_portfolio", :as => :admin_manage_portfolio
+  match 'admin' => "admin#index", :as => :admin_index
 
 
   root :to => 'user_sessions#new'

@@ -4,12 +4,13 @@ class AdminController < ApplicationController
 	before_filter :require_user, :require_admin
 
 	def index
-		@user = User.find(params[:user_id])
+		# @user = User.find(params[:user_id])
+		@user = current_user
 		@title = "Administration"
 	end
 
 	def new_user
-		@title = "Add new user"
+		@title = "Administration: Add new user"
 		@users = User.order("created_at desc")
 		@action = "all"
 		if params[:action_link]
@@ -61,6 +62,12 @@ class AdminController < ApplicationController
 			redirect_to :action => :new_user
 		end
 		
+	end
+
+	def manage_portfolio
+		@title = "Administration: Portfolio"
+		@portfolio = Portfolio.order("updated_at desc")
+		@user = current_user
 	end
 end
 

@@ -1,5 +1,37 @@
-This is admin index
-I am <%=@user.name%>
-<br/>
+<STYLE TYPE="text/css">
+<!--
+input {
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    
+    border: 1px solid #ccc;
+    font-size: 14pt;
+    padding: 5px 10px;
+}
 
-<%= link_to "(+) Add new user", admin_new_user_path %>
+input[type=button] {
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    
+    border: 1px solid #ccc;
+    font-size: 14pt;
+    padding: 5px 10px;
+}
+-->
+</STYLE>
+<div class="container">
+  <div class="row">
+    <%= render "left_menu" %>
+    <div class="span9">
+      <div align="center">
+      </div><!-- class="center"  -->
+    </div><!-- class="span9"  -->
+  </div><!-- class="row"  -->
+
+</div> <!-- /container -->

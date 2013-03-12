@@ -75,6 +75,7 @@ class PortfolioController < ApplicationController
     @portfolio = Portfolio.find(params[:portfolio_id])
     @portfolio["tags"] = @portfolio.portfolio_tags
     @title =  @portfolio.title.nil?? "Portfolio: " + @user.name: "Portfolio: "+ @portfolio.title
+    @isAdmin = @current_user.user_type == UserType.find_by_name("Admin") unless @current_user.user_type.nil?
   end
 
   def feed
