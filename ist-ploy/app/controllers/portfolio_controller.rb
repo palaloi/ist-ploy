@@ -118,4 +118,15 @@ class PortfolioController < ApplicationController
       render :action => :show , :params => {:user_id => current_user.id, :portfolio_id => @portfolio.id}
     end
   end
+  def multi_delete_port
+    puts "))))((((((((((((("
+    port_ids =  params[:hidden_port_id].first.split(",") unless params[:hidden_port_id].nil?
+    puts "first #{params[:hidden_port_id].first}"
+    puts "port_ids = #{port_ids}"
+    port_ids.each do |port|
+      Portfolio.find(port).destroy
+    end unless port_ids.nil?
+    flash[:notice] = "Successfully delete portfolio."
+    redirect_to admin_manage_portfolio_path
+  end
 end

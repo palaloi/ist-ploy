@@ -61,14 +61,36 @@ input[type=button] {
             <td><%=h truncate(port.detail, :length => 80) %></td>
             <td><%=port.portfolio_category.name if port.portfolio_category%></td>
             <td><%=image_tag(port.photo.url(:thumb))%></td>
-            <td><label class="checkbox"><input type="checkbox" value='<%=port.id%>'></label></td>
+            <td><label class="checkbox"><input type="checkbox" class="select_delete" value='<%=port.id%>'></label></td>
           </tr>
         <%end%>
       </table>
-      <div  align="right"><button class="btn btn-danger" type="button">Delete Message</button></div>
+      <%= form_tag({:controller => "portfolio", :action=>'multi_delete_port'}) do %>
+      <%= hidden_field :hidden_port_id , ""%>
+        <div  align="right"><button class="btn btn-danger" type="submit">Delete Message</button></div>
+      <%end%>
     </div><!-- SPAN12 --> 
 
 
   </div><!-- class="row"  -->
 
 </div> <!-- /container -->
+<script type="text/javascript">
+  var selected_port = [];
+  $('.select_delete').click(function() {
+    // $this will contain a reference to the checkbox   
+    if ($(this).is(':checked')) {
+        // the checkbox was checked 
+        selected_port.push($(this).val());
+    } else {
+        // the checkbox was unchecked
+        var index = selected_port.indexOf($(this).val());
+        selected_port.splice(index, 1);
+    }
+    var string = "";
+    selected_port.forEach(function(d){
+      string += d + ",";
+    });
+    $("#hidden_port_id_").val(string);
+});
+</script>
