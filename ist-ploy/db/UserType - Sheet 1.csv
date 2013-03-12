@@ -1,0 +1,12 @@
+login,password,id,firstname,lastname,user_type,email
+zdem0014,zdem0014,5414120014,สุรศิษฏ์,โตรักษา,Student,zdem0014@mut.ac.th
+zdem0015,zdem0015,5414120015,ชินวัฒน์,ระวังวงศ์,Student,zdem0015@mut.ac.th
+zdem0016,zdem0016,5414120016,ธนากรณ์,ป้องศรี,Student,zdem0016@mut.ac.th
+zdem0017,zdem0017,5414120017,สาวภคพรรณ,ผลหิรัญ,Student,zdem0017@mut.ac.th
+zdem0018,zdem0018,5414120018,อานนท์,ชิวภักดี,Student,zdem0018@mut.ac.th
+zdem0019,zdem0019,5414120019,อัครพล,กิติวัฒนากร,Student,zdem0019@mut.ac.th
+jirayu,jirayu,25520001,จิรายุ,ตระกูลเขียว,Teacher,jirayu@mut.ac.th
+wongduen,wongduen,25510001,วงเดือน,พลอยงาม,Teacher,wongduen@mut.ac.th
+apichade,apichade,25530001,อภิเชษฐ,ดุมคำ,Teacher,apichade@mut.ac.th
+walid,walid,25510002,วาลิด,เพ็ญพันธ์,Staff,walid@mut.ac.th
+nartthaporn,nartthaporn,25520057,นาถพร,ประวันนา,Staff,nartthaporn@mut.ac.th

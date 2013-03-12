@@ -293,6 +293,24 @@
 <hr>
 </div><!-- Row -->
 
+<script>
+// Get the range of cells that store employee data.
+var employeeDataRange = ss.getRangeByName("employeeData");
+
+// For every row of employee data, generate an employee object.
+var employeeObjects = getRowsData(sheet, employeeDataRange);
+
+var thirdEmployee = employeeObjects[2];
+  
+var stringToDisplay = "The third row is: " + thirdEmployee.firstName + " " + thirdEmployee.lastName;
+stringToDisplay += " (id #" + thirdEmployee.employeeId + ") working in the ";
+stringToDisplay += thirdEmployee.department + " department and with phone number ";
+stringToDisplay += thirdEmployee.phoneNumber;
+
+
+  
+</script>
+
 <footer>
 <div class="row">
 &copy; IST, MUT

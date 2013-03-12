@@ -25,7 +25,7 @@ class AdminController < ApplicationController
 				  user = User.new
 				  user.login = row['login']
 				  user.password = row['password']
-				 	user.password_confirmation = row['password']
+				  user.password_confirmation = row['password']
 				  user.name = row['id']
 				  user.firstname = row['firstname']
 				  user.lastname = row['lastname']
