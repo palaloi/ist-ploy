@@ -1,0 +1,23 @@
+ <div class="span3">
+  <div class="well sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">Manage Data for ADMIN</li>
+      <li <% if request_from == "admin#index" %> class= "active" <%end%> >
+        <%= link_to admin_index_path do %>
+          <i class="icon-home"></i> Hello admin!
+        <% end %>
+      </li>
+      <li <% if request_from == "admin#new_user" %> class= "active" <%end%> >
+        <%= link_to admin_new_user_path do %>
+          <i class="icon-user"></i> Users
+        <% end %>
+      </li>
+      <li <% if request_from == "admin#manage_portfolio" %> class= "active" <%end%> >
+        <%= link_to admin_manage_portfolio_path do %>
+          <i class="icon-file"></i> Portfolios
+        <% end %>
+      </li>
+      <li><a href="#"><i class="icon-comment" ></i> Messages</a></li>
+    </ul>
+  </div><!--/.well -->
+</div><!--/.span3 -->

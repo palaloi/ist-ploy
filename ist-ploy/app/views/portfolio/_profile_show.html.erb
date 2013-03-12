@@ -7,7 +7,7 @@
 
 	<div class="span6">
 		<span style="font-size:18px"> <%=@user.name%>	| <%=@user.firstname%> <%=@user.lastname%>&nbsp;</span>
-		<% if @current_user.id == @user.id %>
+		<% if @current_user.id == @user.id || @isAdmin %>
 			<%= link_to 'Edit Profile', edit_user_path, {"data-icon" => "button", "data-theme" => "a", :class => "btn btn-small btn-primary"} %>
 			<%if request_from == "portfolio#show" %>
 				<%= link_to 'Edit Portfolio', portfolio_upload_detail_path({:portfolio_id => @portfolio.id}), {"data-icon" => "button", "data-theme" => "a", :class => "btn btn-small btn-primary"} %>
