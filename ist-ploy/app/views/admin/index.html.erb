@@ -36,12 +36,13 @@ input[type=button] {
             <img class="img-round" style="width: 265px; height: 115px;" src="assets/admin/user.png">
               <h3> Users</h3>
               <h4> <p>จัดการข้อมูลผู้ใช้งาน</p></h4>
-              <p><a class="btn btn-block btn-large"  href="#">Edit Data</a></p>
+              <p><%= link_to "Edit Data", admin_new_user_path, :class => "btn btn-block btn-large" %></p>
             </div><!--/span-->           <div class="span4" align="center">
             <img class="img-round" style="width: 265px; height: 115px;" src="assets/admin/bag.png">
               <h3> Portfolios</h3>
               <h4> <p>จัดการไฟล์รูปภาพและไฟล์ข้อมูล</p></h4>
-              <p><a class="btn btn-block btn-large" href="#">Edit Data</a></p>
+              <p><%= link_to "Edit Data", admin_manage_portfolio_path, :class => "btn btn-block btn-large" %></p>
+              
             </div><!--/span-->
             <div class="span4" align="center">
             <img class="img-round" style="width: 265px; height: 115px;" src="assets/admin/message.png">

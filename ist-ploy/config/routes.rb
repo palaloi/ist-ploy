@@ -1,10 +1,5 @@
 IstPloy::Application.routes.draw do
 
-  get "messages/index"
-
-  get "messages/compose"
-
-  get "messages/sent"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -81,7 +76,7 @@ IstPloy::Application.routes.draw do
 
   match 'portfolio/upload' => "portfolio#upload", :as => :portfolio_upload
   match 'portfolio/save' => "portfolio#upload_save", :as => :portfolio_upload_save
-  match 'portfolio/:portfolio_id/upload_detail_saveil' => 'portfolio#upload_detail', :as => :portfolio_upload_detail
+  match 'portfolio/:portfolio_id/upload_detail_save' => 'portfolio#upload_detail', :as => :portfolio_upload_detail
   match 'portfolio/:portfolio_id/save_detail' => "portfolio#upload_detail_save", :as => :portfolio_upload_save_detail
   match 'portfolio/:portfolio_id/destroy' => "portfolio#destroy", :as => :portfolio_destroy
   match 'portfolio/:portfolio_id/show/:user_id' => "portfolio#show", :as => :portfolio_show
@@ -92,8 +87,13 @@ IstPloy::Application.routes.draw do
   match 'admin/new_user' => "admin#new_user", :as => :admin_new_user
   match 'admin/create_user' => "admin#create_user", :as => :admin_create_user
   match 'admin/manage_portfolio' => "admin#manage_portfolio", :as => :admin_manage_portfolio
-
   match 'admin' => "admin#index", :as => :admin_index
+
+  match 'messages/:user_id/compose' => "messages#compose", :as => :message_compose
+  match 'messages/:user_id/sent' => "messages#sent", :as => :message_sent
+  match 'messages/:user_id/compose_submit' => "messages#compose_submit", :as => :messages_compose_submit
+  match 'messages' => "messages#index", :as => :message_index
+
 
 
   root :to => 'user_sessions#new'

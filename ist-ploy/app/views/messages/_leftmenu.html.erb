@@ -1,10 +1,22 @@
-<div class="span3">
+ <div class="span3">
   <div class="well sidebar-nav">
     <ul class="nav nav-list">
       <li class="nav-header">message</li>
-      <li class="active"><a href="messageIndex.html"><i class="icon-inbox"></i> Inbox</a></li>
-      <li><a href="messageCompose.html"><i class="icon-pencil" ></i> Compose</a></li>
-      <li ><a href="messageSent.html"><i class="icon-share-alt" ></i> Sent</a></li>
+      <li <% if request_from == "messages#index" %> class= "active" <%end%> >
+        <%= link_to message_index_path do %>
+          <i class="icon-inbox"></i> Inbox
+        <% end %>
+      </li>
+      <li <% if request_from == "messages#compose" %> class= "active" <%end%> >
+        <%= link_to message_compose_path(@user) do %>
+          <i class="icon-pencil"></i> Compose
+        <% end %>
+      </li>
+      <li <% if request_from == "messages#sent" %> class= "active" <%end%> >
+        <%= link_to message_sent_path(@user) do %>
+          <i class="icon-share-alt"></i> Sent
+        <% end %>
+      </li>
       <hr>
       <li class="nav-header">group</li>
       <li><a href="messageGroupCreate.html"><i class="icon-list-alt" ></i> Create</a></li>
@@ -12,4 +24,4 @@
       <li></li>
     </ul>
   </div><!--/.well -->
-</div><!--/span-->
+</div><!--/.span3 -->
