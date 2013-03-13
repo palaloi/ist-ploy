@@ -31,11 +31,12 @@ input[type=button] {
     <%= render "left_menu" %>
 
       <div class="span9">
-        <div class="row-fluid"> 
+        <div class="row"> 
           <div align="center">
             <h2>You can upload .csv file for add new users!</h2>
             <p><img src="/assets/admin/csvicon.png"></p>
             <!-- <p class="lead">select your file :)</p> -->
+            <br>
             <%= form_tag({:controller => "admin", :action=>'create_user'},:multipart=>true) do %>
 
               <div class="well" style="max-width: 400px; margin: 0 auto 10px;">
@@ -48,7 +49,7 @@ input[type=button] {
           <hr>
         </div> <!-- class="row" -->
         <!-- <div style="clear: both;"> -->
-        <div class="row-fluid">
+        <div class="row">
           <ul class="nav nav-pills">
             <li <% if @action == "all"%> class="active" <%end%> ><%= link_to "All",  {:controller => "admin", :action => "new_user", :action_link => "all" } %></li>
             <li <% if @action == "student"%> class="active" <%end%>> <%= link_to "Student",  {:controller => "admin", :action => "new_user", :action_link => "student" } %></li>
@@ -57,7 +58,7 @@ input[type=button] {
           </ul>
         </div> <!-- class="row" -->
 
-        <div class="row-fluid">
+        <div class="row">
           <table class="table table-hover"  style="background-color:#FFF; color: #333; width:100%;">
             <thead>
               <td>&nbsp</td>

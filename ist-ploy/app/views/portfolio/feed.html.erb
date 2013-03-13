@@ -26,17 +26,28 @@
 	<div class="span12">
 		<div class="row">
 			<ul class="nav nav-pills">
-			  <li >
-			    <a href="#">Popular</a>
-			  </li>
 			  <li <%if @action == "recent" %> class="active" <%end%> >
 			  	<%= link_to("Recent", portfolio_feed_path(:action => "recent")) %>
 			  </li>
 			  <li><a href="#">Everyone</a></li>
-			  <li><a href="#">My Friends</a></li>
+
+					<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Group <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+                                <li class="nav-header">กลุ่มผู้ใช้งาน</li>
+                                <li class="divider"></li>
+                                <li><a href="#">Students</a></li>
+                                <li><a href="#">Teacher</a></li>
+                                <li><a href="#">Staff</a></li>
+                            </ul><!-- ul class="dropdown-menu" -->
+						</li><!-- li class="dropdown" -->
+
+
 				<li <%if @action == "category" %> class="dropdown active" <%else%> class="dropdown" <%end%> >
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories <b class="caret"></b></a>
           <ul class="dropdown-menu">
+          	<li class="nav-header">ประเภทของผลงาน</li>
+          	<li class="divider"></li>
           	<% @categories.each do |c| %>
           		<li><%= link_to( c.name , portfolio_feed_path(:category => c.id)) %></li>
           	<%end%>
@@ -45,6 +56,8 @@
 			<li <%if @action == "tag" %> class="dropdown active" <%else%> class="dropdown" <%end%> >
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hot Tags <b class="caret"></b></a>
           <ul class="dropdown-menu">
+          	<li class="nav-header">คำที่เกี่ยวข้อง</li>
+          	<li class="divider"></li>
           	<% @tags.each do |tag| %>
           		<li><%= link_to( tag.name , portfolio_feed_path(:tag => tag.id)) %></li>
           	<%end%>
