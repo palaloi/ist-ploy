@@ -37,9 +37,9 @@
 <div class="container">
   <%= form_for @user_session, :as => :user_session, :html => { :class => "form-signin" }, :url => { :action => "create" } do |f| %>
     <h2 class="form-signin-heading">Please sign in</h2>
-<div class="alert alert-error">
+
             <%= render "shared/error_messages", :target => @user_session %>
-    </div>
+    
     <%= f.text_field :login , :class => "input-block-level", :placeholder => "Username"%><br />
     <%= f.password_field :password , :class => "input-block-level", :placeholder => "Password"%><br />
     <%= f.label :remember_me do %> 
