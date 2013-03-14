@@ -28,32 +28,19 @@
 							<td id="sender_<%=receipt.message.id%>"><%= User.find(receipt.message.sender_id).name %></td>
 							<td id="subject_<%=receipt.message.id%>"><%= receipt.message.subject %></td>
 							<td style="width: 50px;"> <%= link_to "show", message_show_path(@user, receipt, :source => "index") %>
-							<td style="width: 20px;"><label class="checkbox"><input type="checkbox" id="chkbox_<%=receipt.message.id%>"></label></td>
+							<!-- <td style="width: 20px;"><label class="checkbox"><input type="checkbox" id="chkbox_<%=receipt.message.id%>"></label></td> -->
 							<textarea style="display: none;" id="body_<%=receipt.message.id%>"><%= receipt.message.body %></textarea>
 						</tr>
 					</tbody>
 				<% end %>
 			<% end %>
     </table>
-    <div id="inbox_content" style="display: none;">
-    	<table class="table table-bordered">
-    		<tr><td>Date</td><td id="body_date"></td></tr>
-    		<tr><td>From</td><td id="body_sender"></td></tr>
-    		<tr><td>Title</td><td id="body_subject"></td></tr>
-    		<tr><td>Body</td><td id="body_body"></td></tr>
-    	</table>
-    </div>
-
-<!--
-	<button class="btn btn-large btn-primary" type="button" >Delete</button>
-	<button class="btn btn-large" type="button" >Cancle</button>
--->
 
 
-<div align="right">
+<!-- <div align="right">
               <button type="button" class="btn btn-danger">Delete</button>
             </div>
-
+ -->
 
 
  
@@ -89,23 +76,3 @@
 
 </script>
 
-
-<% @inboxes.each do |inbox| %>
-	<% receipts = inbox.receipts_for @user %>
-	<% receipts.each do |receipt| %>
-		date = <%= receipt.message.updated_at %>
-		<br/>
-		subject = <%= receipt.message.subject %>
-		<br/>
-	  Body = <%= receipt.message.body %>
-	  <br/>
-	  isRead = <%= receipt.is_read %>
-	  <br/>
-	  Sender = <%= User.find(receipt.message.sender_id).name %> 
-	  <br/>
-
-	  ------------
-	  <br/>
-	  <br/>
-	<% end %>
-<% end %>
