@@ -29,6 +29,7 @@ class UsersController < ApplicationController
       @user = current_user
     end
     @title = @user.name
+    @current_user = current_user
     @skills = Skill.all
   end
 

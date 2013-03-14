@@ -134,14 +134,15 @@ $(function(){
 </script> 
 
 <div class="container">    
- 
+  <%= render "user_profile" %>
   <div class="row">
     <div class="span3">
       <div class="well sidebar-nav">
+
             <ul class="nav nav-list">
               <li class="nav-header">
                 <i class="icon-info-sign"></i> About : <%=h @user.name %></li>
-              <li><%=h @user.about_you %></li>
+                <li><%=h @user.about_you %></li>
             </ul>    
       </div>
 
@@ -149,14 +150,35 @@ $(function(){
         <ul class="nav nav-list">
           <li class="nav-header"><i class="icon-heart"></i> Skill</li>
             <div align="right">
-              <li class="nav-header">Programming</li>
+              <% @skills.each do |skill| %>
+              <li class="nav-header"><%=skill.name%> </li>
+                <% if skill.name == "Programming" %>
+                  <div class="progress progress-info progress-striped">
+                <%elsif skill.name == "System Analysis" %>
+                  <div class="progress progress-success progress-striped">
+                <%elsif skill.name == "Digital Art" %>
+                  <div class="progress progress-danger progress-striped">
+                <%elsif skill.name == "Protography" %>
+                  <div class="progress progress-warning progress-striped">
+                <%elsif skill.name == "Film And Animation" %>
+                  <div class="progress progress-info progress-striped">
+                <%elsif skill.name == "Networking" %>
+                   <div class="progress progress-success progress-striped">
+                <%end%>
+                  
+                  <div class="bar" style="width: <%=h @user.skill_users.where("skill_id = ?", skill.id).first.skill_value.to_s if (@user.skills.any? and !@user.skill_users.where("skill_id = ?", skill.id).first.nil?) %>%">
+                  </div>
+                </div>
+              <%end%>
+            </p>
+  <!--             <li class="nav-header">Programming</li>
               <div class="progress progress-info"><div class="bar" style="width: 100%"></div></div>
               <li class="nav-header">Database</li>
               <div class="progress progress-success"><div class="bar" style="width: 40%"></div></div>
               <li class="nav-header">Networking</li>
               <div class="progress progress-warning"><div class="bar" style="width: 60%"></div></div>
               <li class="nav-header">Graphic Designing</li>
-              <div class="progress progress-danger"><div class="bar" style="width: 80%"></div></div>
+              <div class="progress progress-danger"><div class="bar" style="width: 80%"></div></div> -->
             </div>
           </li>
         </ul>     
@@ -254,6 +276,6 @@ Test for commit from Mac.
 
 <%= link_to 'Edit Account', edit_account_path %>
 <br/>
-<%= link_to 'Message', message_index_path %>
+<%= link_to 'Message', message_index_path(@user) %>
 <br/>
 <%= link_to 'Create Portfolio', portfolio_upload_path %>
