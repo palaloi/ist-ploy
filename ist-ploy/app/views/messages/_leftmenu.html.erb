@@ -2,7 +2,7 @@
   <div class="well sidebar-nav">
     <ul class="nav nav-list">
       <li class="nav-header">message</li>
-      <li <% if request_from == "messages#index" %> class= "active" <%end%> >
+      <li <% if request_from == "messages#index" or @source == "index" %> class= "active" <%end%> >
         <%= link_to message_index_path do %>
           <i class="icon-inbox"></i> Inbox
         <% end %>
@@ -12,7 +12,7 @@
           <i class="icon-pencil"></i> Compose
         <% end %>
       </li>
-      <li <% if request_from == "messages#sent" %> class= "active" <%end%> >
+      <li <% if request_from == "messages#sent" or @source == "sent"%> class= "active" <%end%> >
         <%= link_to message_sent_path(@user) do %>
           <i class="icon-share-alt"></i> Sent
         <% end %>

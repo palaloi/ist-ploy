@@ -1,2 +1,38 @@
-<h1>Messages#sent</h1>
-<p>Find me in app/views/messages/sent.html.erb</p>
+<div class="container">
+  <div class="row">
+  	<%= render "leftmenu" %>
+		<div class="span9">
+		<legend>Sent Box</legend>
+		<div id="link_back_inbox"></div>
+    <table id="table_inbox" class="table table-bordered table-hover" style="background-color:#FDFDFD">
+      <thead>
+       <tr>
+         <th style="width: 200px;">Date</th>
+         <th>Title</th>
+         <th style="width: 200px;">To</th>
+       </tr>
+      </thead>
+		  <% @inboxes.each do |inbox| %>
+				<% receipts = inbox.receipts_for @user %>
+				<% receipts.each do |receipt| %>
+					<tbody>
+						<% if receipt.is_read == true %>
+							<tr class="read">
+						<%else%>
+							<tr>
+						<%end%>
+							<td id="date_<%=receipt.message.id%>"><%= receipt.message.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
+							<td id="subject_<%=receipt.message.id%>"><%= receipt.message.subject %></td>
+							<td id="sender_<%=receipt.message.id%>"><%= User.find(receipt.receiver_id).name %></td>
+							<td style="width: 50px;"> <%= link_to "show", message_show_path(@user, receipt, :source => "sent"),  %>
+						</tr>
+					</tbody>
+				<% end %>
+			<% end %>
+    </table>
+
+
+ 
+	  </div><!--/span-->
+	</div><!--/row-->
+</div><!--/.fluid-container-->

@@ -92,7 +92,8 @@ IstPloy::Application.routes.draw do
   match 'messages/:user_id/compose' => "messages#compose", :as => :message_compose
   match 'messages/:user_id/sent' => "messages#sent", :as => :message_sent
   match 'messages/:user_id/compose_submit' => "messages#compose_submit", :as => :messages_compose_submit
-  match 'messages' => "messages#index", :as => :message_index
+  match 'messages/:user_id/show/:receipt_id' => "messages#show", :as => :message_show
+  match 'messages/:user_id/inbox' => "messages#index", :as => :message_index
 
 
 
