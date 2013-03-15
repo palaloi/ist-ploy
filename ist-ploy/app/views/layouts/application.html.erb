@@ -5,135 +5,100 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  
 </head>
 <style type="text/css">
 .alert {
   text-align: center;
 }
 </style>
-<body>
 
+<body>
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-
-<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+        <!-- ยืดหดได้ -->
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
         <%= link_to image_tag("logo.png", :border=>0), "#", :class => "brand"%>  
 
-<div class="nav-collapse collapse">
-  <ul class="nav pull-right">
+        <div class="nav-collapse collapse">
+          <ul class="nav pull-right">
 
 <!-- Seaechhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh -->
-    <li style="margin: 10px 0px 0px;">
-      <form class="navbar-search">
-        <input type="text" class="search-query" placeholder="Search Portfolio" style="width: 95px;">
-      </form>
-    <li class="divider-vertical"></li>
-    </li>
+            <li style="margin: 10px 0px 0px;">
+              <form class="navbar-search">
+                <input type="text" class="search-query" placeholder="Search Portfolio" style="width: 95px;">
+              </form>
+              <li class="divider-vertical"></li>
+            </li>
 
 <!-- Portfolios -->                      
-    <li class="dropdown" style="margin: 10px 0px 0px;">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolios <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li class="nav-header">ผลงานต่างๆ</li>
-          <li class="divider"></li>
-          <li><a href="#">Recent</a></li>
-          <li><a href="#">Everyone</a></li>
-          <li><a href="#">Group</a></li>
-          <li><a href="#">Tags</a></li>
-        </ul><!-- ul class="dropdown-menu" -->   
-    </li><!-- li class="dropdown" -->  
+            <li class="dropdown" style="margin: 10px 0px 0px;">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolios <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="nav-header">ผลงานต่างๆ</li>
+                  <li class="divider"></li>
+                  <li><a href="#">Recent</a></li>
+                  <li><a href="#">Everyone</a></li>
+                  <li><a href="#">Group</a></li>
+                  <li><a href="#">Tags</a></li>
+                </ul><!-- ul class="dropdown-menu" -->   
+            </li><!-- li class="dropdown" -->  
 
 <!-- Message -->            
-    <li style="margin: 10px 0px 0px;"><a href="#">Message </a></li>
+            <li style="margin: 10px 0px 0px;"><a href="#">Message </a></li>
 
 <!-- News -->     
-    <li class="dropdown" style="margin: 10px 0px 0px;">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li class="nav-header">ข่าว/ประกาศ</li>
-        <li class="divider"></li>
-        <li><a href="news.html">ข่าวล่าสุด</a></li>
-        <li><a href="newsActivities.html">ข่าวกิจกรรม</a></li>
-        <li><a href="#">ข่าวภายใน</a></li>
-        <li><a href="#">ข่าวภายนอก</a></li>
-        <li><a href="newsContest.html">ข่าวงานประกวด</a></li>
-        <li><a href="#">ข่าวรับสมัครงาน</a></li>
-      </ul>
-    </li>
+            <li class="dropdown" style="margin: 10px 0px 0px;">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="nav-header">ข่าว/ประกาศ</li>
+                <li class="divider"></li>
+                <li><a href="news.html">ข่าวล่าสุด</a></li>
+                <li><a href="newsActivities.html">ข่าวกิจกรรม</a></li>
+                <li><a href="#">ข่าวภายใน</a></li>
+                <li><a href="#">ข่าวภายนอก</a></li>
+                <li><a href="newsContest.html">ข่าวงานประกวด</a></li>
+                <li><a href="#">ข่าวรับสมัครงาน</a></li>
+              </ul>
+            </li>
 
-<!-- Registration -->                          
-    <li class="dropdown" style="margin: 10px 0px 0px;">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Registration <b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li class="nav-header">นาถพร ประวันนา</li>
-        <li class="divider"></li>
-        <li><a href="regisStdmars.html">View Profile</a></li>
-        <li><a href="regisTranscript.html">View Transcript</a></li>
-        <li><a href="regisTimetable.html">View Timetable</a></li>
-      </ul><!-- ul class="dropdown-menu" -->
-    </li><!-- li class="dropdown" -->
-
-    <li class="dropdown">
-      <%= link_to image_tag("profile/palaloi.jpg", :border=>0, :width => 40, :height => 40, :class => "img-rounded"), "#", :class=>"dropdown-toggle" %>
-            <ul class="dropdown-menu">
-              <li class="nav-header">Profile's : พะละลอยด์</li>
-              <li class="divider"></li>
-              <li><a href="#">Edit Profile</a></li>
-              <li class="divider"></li>
-              <li><a href="#">My Portfolio</a></li>
-              <li><a href="#">Upload Portfolio</a></li>
-            </ul><!-- ul class="dropdown-menu" -->         
-    </li><!-- li class="dropdown" -->   
-  </ul>
-</div>
+<!-- Registration -->       
+<!--                   
+            <li class="dropdown" style="margin: 10px 0px 0px;">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Registration <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="nav-header">นาถพร ประวันนา</li>
+                <li class="divider"></li>
+                <li><a href="regisStdmars.html">View Profile</a></li>
+                <li><a href="regisTranscript.html">View Transcript</a></li>
+                <li><a href="regisTimetable.html">View Timetable</a></li>
+              </ul>
+            </li>
+-->
+<!-- Profile Picture -->  
+            <li class="dropdown">
+              <%= link_to image_tag("profile/palaloi.jpg", :border=>0, :width => 40, :height => 40, :class => "img-rounded"), "#", :class=>"dropdown-toggle" %>
+              <ul class="dropdown-menu">
+                <li class="nav-header">Profile's : พะละลอยด์</li>
+                <li class="divider"></li>
+                <li><a href="#">Edit Profile</a></li>
+                <li class="divider"></li>
+                <li><a href="#">My Portfolio</a></li>
+                <li><a href="#">Upload Portfolio</a></li>
+              </ul><!-- ul class="dropdown-menu" -->         
+            </li><!-- li class="dropdown" -->   
+          </ul><!-- <ul class="nav pull-right"> -->
+        </div><!-- <div class="nav-collapse collapse"> -->
 
       </div> <!-- End of container head menu -->
     </div><!-- navbar-inner --> 
   </div><!-- navbar navbar-inverse navbar-fixed-top -->
-    
-<!-- END Menu Head -->
-
-
-
-
-<div id="ajax-error-msg" style="display: none" class="row"></div>
-  <% if(flash[:notice]) %>
-    <!--script type="text/javascript">
-      flashMessage.show('<%= flash[:notice] %>', "alert rails-flash alert-success");
-    </script-->
-    <div class="alert alert-success">
-      <button type="button" class="close" data-dismiss="alert">×</button>
-      <%= flash[:notice] %>
-    </div>
-  <% end %>
-  <% if(flash[:error_notice]) %>
-    <!--script type="text/javascript">
-      flashMessage.show('<%= flash[:error_notice] %>', "alert rails-flash alert-error");
-    </script-->
-    <div class="alert alert-error">
-      <button type="button" class="close" data-dismiss="alert">×</button>
-      <%= flash[:error_notice] %>
-    </div>
-  <% end %>
-</div> <!--End of flash -->
-
-<!-- เอาแถวออกนะ
-<div class="row"> 
--->
 <%= yield %>
-<!-- 
-</div>
--->
-<!-- End of row -->
-
 </div><!-- End of container -->
-
 </body>
 </html>
