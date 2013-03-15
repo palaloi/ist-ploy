@@ -8,9 +8,10 @@
       <thead>
        <tr>
          <th style="width: 200px;">Date</th>
-         <th>Title</th>
          <th style="width: 200px;">From</th>
-         <th style="width: 20px;"><label class="checkbox"><input type="checkbox"></label></th>
+         <th>Title</th>
+         <th colspan="2"></th>
+         <!-- <th style="width: 20px;"><label class="checkbox"><input type="checkbox"></label></th> -->
        </tr>
       </thead>
 		  <% @inboxes.each do |inbox| %>
@@ -22,35 +23,24 @@
 						<%else%>
 							<tr>
 						<%end%>
+							<input type="hidden" id="receipt_id" value='<%=receipt.id%>' />
 							<td id="date_<%=receipt.message.id%>"><%= receipt.message.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
-							<td id="subject_<%=receipt.message.id%>"><%= receipt.message.subject %></td>
 							<td id="sender_<%=receipt.message.id%>"><%= User.find(receipt.message.sender_id).name %></td>
-							<td><label class="checkbox"><input type="checkbox" id="chkbox_<%=receipt.message.id%>"></label></td>
+							<td id="subject_<%=receipt.message.id%>"><%= receipt.message.subject %></td>
+							<td style="width: 50px;"> <%= link_to "show", message_show_path(@user, receipt, :source => "index") %>
+							<!-- <td style="width: 20px;"><label class="checkbox"><input type="checkbox" id="chkbox_<%=receipt.message.id%>"></label></td> -->
 							<textarea style="display: none;" id="body_<%=receipt.message.id%>"><%= receipt.message.body %></textarea>
 						</tr>
 					</tbody>
 				<% end %>
 			<% end %>
     </table>
-    <div id="inbox_content" style="display: none;">
-    	<table class="table table-bordered">
-    		<tr><td>Date</td><td id="body_date"></td></tr>
-    		<tr><td>From</td><td id="body_sender"></td></tr>
-    		<tr><td>Title</td><td id="body_subject"></td></tr>
-    		<tr><td>Body</td><td id="body_body"></td></tr>
-    	</table>
-    </div>
-
-<!--
-	<button class="btn btn-large btn-primary" type="button" >Delete</button>
-	<button class="btn btn-large" type="button" >Cancle</button>
--->
 
 
-<div align="right">
+<!-- <div align="right">
               <button type="button" class="btn btn-danger">Delete</button>
             </div>
-
+ -->
 
 
  
@@ -58,50 +48,31 @@
 	</div><!--/row-->
 </div><!--/.fluid-container-->
 <style type="text/css">
-	#table_inbox tr:hover{
+	/*#table_inbox tr:hover{
 		cursor: pointer;
-	}
+	}*/
 	.read {
 		background-color: lightgray;
 	}
 </style>
 <script type="text/javascript">
-	$("#table_inbox tr").click(function(){
-		$("#link_back_inbox").html("<a href='#' id='link_inbox'> << Back to inbox </a>");
-		$("#table_inbox").hide();
-		var id = $(this).find("input").attr("id").split("_")[1];
-		$("#body_date").html($("#date_"+ id).text());
-		$("#body_sender").html($("#sender_"+ id).text());
-		$("#body_subject").html($("#subject_"+ id).text());
-		$("#body_body").html($("#body_"+ id).val());
-		$(this).addClass("read"); // Need to send ajax request
-		$("#inbox_content").show("slow");
-		$("#link_inbox").click(function(){
-			$(this).empty();
-			$("#inbox_content").hide();
-			$("#table_inbox").show("slow");
-		});
-	});
+	// $("#table_inbox tr").click(function(){
+		// $("#link_back_inbox").html("<a href='#' id='link_inbox'> << Back to inbox </a>");
+		// $("#table_inbox").hide();
+		// var id = $(this).find("input").attr("id").split("_")[1];
+		// $("#body_date").html($("#date_"+ id).text());
+		// $("#body_sender").html($("#sender_"+ id).text());
+		// $("#body_subject").html($("#subject_"+ id).text());
+		// $("#body_body").html($("#body_"+ id).val());
+		// $(this).addClass("read"); // Need to send ajax request
+		// $("#inbox_content").show("slow");
+		// $("#link_inbox").click(function(){
+		// 	$(this).empty();
+		// 	$("#inbox_content").hide();
+		// 	$("#table_inbox").show("slow");
+		// });
+
+	// });
 
 </script>
 
-
-<% @inboxes.each do |inbox| %>
-	<% receipts = inbox.receipts_for @user %>
-	<% receipts.each do |receipt| %>
-		date = <%= receipt.message.updated_at %>
-		<br/>
-		subject = <%= receipt.message.subject %>
-		<br/>
-	  Body = <%= receipt.message.body %>
-	  <br/>
-	  isRead = <%= receipt.is_read %>
-	  <br/>
-	  Sender = <%= User.find(receipt.message.sender_id).name %> 
-	  <br/>
-
-	  ------------
-	  <br/>
-	  <br/>
-	<% end %>
-<% end %>
