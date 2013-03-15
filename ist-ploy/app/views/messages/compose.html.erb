@@ -9,34 +9,38 @@
 		    	<strong>From: </strong>
 		        <%= @user.name %>
 				</div>
+			<div class="form-actions">
 				<p>
 					<div class="input-prepend">
-			      <span class="add-on"><i class="icon-user"></i></span> <input class="input-xxlarge"  type="text" placeholder="To" id="to_user" name="to_user" data-provide="typeahead" data-source="<%= @users.to_json %>" >
+			      		<span class="add-on">
+			      			<i class="icon-user"></i>
+			      		</span>
+			      		<input class="input-xxlarge"  type="text" placeholder="To" id="to_user" name="to_user" data-provide="typeahead" data-source="<%= @users.to_json %>" > 
 					</div>
 				</p>
 				<p>
 					<div class="input-prepend">
-			      <span class="add-on">
-			      	<i class="icon-envelope"></i>
-			      </span>
+				      	<span class="add-on">
+				      		<i class="icon-envelope"></i>
+				      	</span>
 
-			      <%= text_field_tag("title" , @msg_title,:placeholder => "Title", :class => "input-xxlarge")%>
-
-		    	</div>
+			      		<%= text_field_tag("title" , @msg_title,:placeholder => "Title", :class => "input-xxlarge")%>
+					</div>
 				</p>
 				<p>
 					<div class="input-prepend">
-			      <span class="add-on">
-			      	<i class="icon-pencil"></i>
-			      </span>
-			      <%= text_area_tag("body", @msg_body ,:placeholder => "Body", :class => "input-xxlarge", :rows => 5)%>   
-		    	</div>
-				</p>
-				<div align="center">
-					<div class="input-large" >
-						<%= submit_tag "Send", :class=>"btn btn-large btn-block btn-primary" %>
+						<span class="add-on">
+							<i class="icon-pencil"></i>
+						</span>
+						<%= text_area_tag("body", @msg_body ,:placeholder => "Body", :class => "input-xxlarge", :rows => 5)%>   
 					</div>
+				</p>
+				<div align="left">
+					
+						<%= submit_tag "       Send       ", :class=>"btn btn-large btn-primary" %> 
+						<button type="button" class="btn btn-large">  &nbsp&nbsp&nbsp&nbsp&nbspCancel&nbsp&nbsp&nbsp&nbsp&nbsp</button>
 				</div>
+			</div>
 			<%end%>        
 		</div><!--/span-->
 	</div><!--/row-->

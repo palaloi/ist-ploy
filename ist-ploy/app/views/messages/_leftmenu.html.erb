@@ -1,6 +1,7 @@
  <div class="span3">
   <div class="well sidebar-nav">
     <ul class="nav nav-list">
+
       <li class="nav-header">message</li>
       <li <% if request_from == "messages#index" or @source == "index" %> class= "active" <%end%> >
         <%= link_to message_index_path do %>
@@ -17,10 +18,7 @@
           <i class="icon-share-alt"></i> Sent
         <% end %>
       </li>
-      <hr>
-      <li class="nav-header">group</li>
-      <li><a href="messageGroupCreate.html"><i class="icon-list-alt" ></i> Create</a></li>
-      <li><a href="#"><i class="icon-edit" ></i> Edit</a></li>
+
       <li></li>
     </ul>
   </div><!--/.well -->
