@@ -84,6 +84,7 @@ IstPloy::Application.routes.draw do
   match 'portfolio/feed' => "portfolio#feed", :as => :portfolio_feed
   match 'portfolio/feed_file' => "portfolio#feed_file", :as => :portfolio_feed_file
   match 'portfolio/multi_delete_port' => "portfolio#multi_delete_port", :as => :portfolio_multi_delete_port
+  match 'portfolio/search' => "portfolio#search", :as => :portfolio_search
 
   match 'admin/new_user' => "admin#new_user", :as => :admin_new_user
   match 'admin/create_user' => "admin#create_user", :as => :admin_create_user
