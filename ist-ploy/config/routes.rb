@@ -1,6 +1,5 @@
 IstPloy::Application.routes.draw do
 
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -96,6 +95,9 @@ IstPloy::Application.routes.draw do
   match 'messages/:user_id/compose_submit' => "messages#compose_submit", :as => :messages_compose_submit
   match 'messages/:user_id/show/:receipt_id' => "messages#show", :as => :message_show
   match 'messages/:user_id/inbox' => "messages#index", :as => :message_index
+
+  match 'news/activity' => "news#activity", :as => :news_activity
+  match 'news/contest' => "news#contest", :as => :news_contest
 
 
 
