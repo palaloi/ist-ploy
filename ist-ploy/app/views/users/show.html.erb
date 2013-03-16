@@ -205,22 +205,7 @@ $(function(){
           </div> <!-- thumbnail -->   
         </li>
         <%end%>
-        <!-- One Thumbnail label -->
-        <li class="span3">
-          <div class="thumbnail">
-            <a href="#">
-              <img data-src="holder.js/300x200" src="/assets/index_hero_penultimate.png">
-            </a>
-            <div align="right" style="padding-top:12px">
-
-              <!-- AddThis Button BEGIN -->
-              <a class="addthis_button_facebook_like" fb:like:layout="button_count" ></a>
-              <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-              <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513a1b2442f06d8c"></script>
-              <!-- AddThis Button END -->
-            </div> <!-- right -->
-          </div> <!-- thumbnail -->   
-        </li>
+        
             
         <!-- End One Thumbnail label -->    
 
@@ -229,72 +214,3 @@ $(function(){
 
     </div>
   </div>
-
-
-Test for commit from Mac.
-<p>
-<b>Name:</b>
-<%=h @user.name %>
-</p>
-<p>
-<b>Email:</b>
-<%=h @user.email %>
-</p>
-<p>
-<b>Web site:</b>
-<%=h @user.web_site %>
-</p>
-<b>Location:</b>
-<%=h @user.location %>
-</p>
-<p>
-<b>Image</b>
-<%= image_tag @user.photo.url(:small) %>
-</p>
-<b>About me:</b>
-<%=h @user.about_you %>
-</p>
-<p>
-<p>
-<b>Skills</b>
-<% @skills.each do |skill| %>
-  <%=skill.name%> 
-    =>
-    <%=h @user.skill_users.where("skill_id = ?", skill.id).first.skill_value.to_s if (@user.skills.any? and !@user.skill_users.where("skill_id = ?", skill.id).first.nil?) %>
-    <br/>
-  <%end%>
-</p>
-<b>Login count:</b>
-<%=h @user.login_count %>
-</p>
-
-<p>
-<b>Last request at:</b>
-<%=h @user.last_request_at %>
-</p>
-
-<p>
-<b>Last login at:</b>
-<%=h @user.last_login_at %>
-</p>
-
-<p>
-<b>Current login at:</b>
-<%=h @user.current_login_at %>
-</p>
-
-<p>
-<b>Last login ip:</b>
-<%=h @user.last_login_ip %>
-</p>
-
-<p>
-<b>Current login ip:</b>
-<%=h @user.current_login_ip %>
-</p>
-
-<%= link_to 'Edit Account', edit_account_path %>
-<br/>
-<%= link_to 'Message', message_index_path(@user) %>
-<br/>
-<%= link_to 'Create Portfolio', portfolio_upload_path %>
