@@ -3,12 +3,12 @@ class UserSessionsController < ApplicationController
 	before_filter :require_user,  :only => :destroy
 
   def new
-    @titile = "Login"
+    @title = "Login"
     @user_session = UserSession.new
   end
 
   def create
-    @titile = "Login"
+    @title = "Login"
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Login successful!"
