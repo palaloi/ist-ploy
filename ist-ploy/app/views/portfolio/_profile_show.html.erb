@@ -8,7 +8,7 @@
 	<div class="span7">
 		<span style="font-size:18px"> <%=@user.name%>	| <%=@user.firstname%> <%=@user.lastname%>&nbsp;</span>
 <!-- พลอยแก้ btn edit profile -->
-		<% if @current_user.id == @user.id || @isAdmin %>
+		<% if !@isAdmin.nil? and @current_user.nil? and  (@current_user.id == @user.id || @isAdmin) %>
 				<%= link_to 'Edit Profile', edit_user_path, {"data-icon" => "button", "data-theme" => "a", :class => "btn btn-info btn-small"} %>
 
 				<%if request_from == "portfolio#show" %>
@@ -17,7 +17,7 @@
 				<%end%>
 		<%end%>
 		
-		<% if @current_user.id != @user.id %>
+		<% if !@current_user.nil? and @current_user.id != @user.id %>
 		<button type="button" id="fat-btn" class="btn btn-success btn-small"> Send PM</button>
 		<%end%>
 		<br>

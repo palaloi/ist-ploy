@@ -1,6 +1,6 @@
 
 class PortfolioController < ApplicationController
-	before_filter :require_user, :only => [:upload , :upload_detail, :upload_save]
+	before_filter :require_user, :only => [:upload , :upload_detail, :upload_save, :destroy, :multi_delete_port]
   def index
     @user = current_user
   end
@@ -77,7 +77,7 @@ class PortfolioController < ApplicationController
     @portfolio = Portfolio.find(params[:portfolio_id])
     @portfolio["tags"] = @portfolio.portfolio_tags
     @title =  @portfolio.title.nil?? "Portfolio: " + @user.name: "Portfolio: "+ @portfolio.title
-    @isAdmin = @current_user.user_type == UserType.find_by_name("Admin") unless @current_user.user_type.nil?
+    @isAdmin = @current_user.user_type == UserType.find_by_name("Admin") if !@current_user.nil? and !@current_user.user_type.nil?
   end
 
   def feed
@@ -109,6 +109,7 @@ class PortfolioController < ApplicationController
     # respond_to do |format|
     #   format.json { render :json => {:portfolio => @portfolio } } 
     # end
+    
   end
 
   def feed_file
@@ -142,5 +143,25 @@ class PortfolioController < ApplicationController
   end
   def how_to_use
     @title = "Help"
+  end
+  def search
+    @title = "Portfolio Feed"
+    @categories = PortfolioCategory.order("name asc")
+    @portfolio = Portfolio.order("created_at DESC")
+    @tags = Tag.all
+    @user = current_user
+    @user_type = UserType.where("name != 'Admin'")
+    unless params[:search_query].blank?
+      flash[:notice] = "Result of #{params[:search_query]}"
+      @portfolio = Portfolio.find(:all, :conditions => ["title LIKE ? or detail LIKE ?", "%#{params[:search_query]}%", "%#{params[:search_query]}%"  ])
+                  # MyModel.find(:all, :conditions => ["field LIKE ?", "#{prefix}%"])
+      render :action => :feed
+    else
+      puts "No seach query found....."
+      flash[:error_notice] = "No search query found."
+      @portfolio = []
+      render :action => :feed
+    end
+
   end
 end

@@ -10,6 +10,10 @@
 .alert {
   text-align: center;
 }
+.search-query {
+  width: 150px;
+  margin-right: 20px;
+}
 </style>
 
 <body>
@@ -30,9 +34,12 @@
 
 <!-- Seaechhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh -->
             <li style="margin: 10px 0px 0px;">
-              <form class="navbar-search">
-                <input type="text" class="search-query" placeholder="Search Portfolio" style="width: 120px;">&nbsp&nbsp&nbsp
-              </form>
+              <!-- <form class="navbar-search"> -->
+              <%= form_tag(portfolio_search_path, :class => "navbar-search") do %>
+                <!-- <input type="text" class="search-query" placeholder="Search Portfolio" style="width: 120px;">&nbsp&nbsp&nbsp -->
+                <%= text_field_tag("search_query" , nil ,:placeholder => "Search Portfolio", :class => "search-query")%>
+              <!-- </form> -->
+              <% end %>
             </li>
 
 <!-- <li class="divider-vertical"></li> --> 
@@ -114,6 +121,27 @@
       </div> <!-- End of container head menu -->
     </div><!-- navbar-inner --> 
   </div><!-- navbar navbar-inverse navbar-fixed-top -->
+  <div class="container-fluid">
+      <section>
+        <div class="row-fluid">
+          <% if(flash[:notice]) %>
+            <div class="alert alert-success">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <%= flash[:notice] %>
+            </div>
+          <% end %>
+          <% if(flash[:error_notice]) %>
+            <!--script type="text/javascript">
+              flashMessage.show('<%= flash[:error_notice] %>', "alert rails-flash alert-error");
+            </script-->
+            <div class="alert alert-error">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <%= flash[:error_notice] %>
+            </div>
+          <% end %>
+        </div>
+      </section>
+    </div>
 <%= yield %>
 </div><!-- End of container -->
 </body>
