@@ -8,4 +8,8 @@ class NewsController < ApplicationController
   	@title = "News | Contest"
   	@action = "contest"
   end
+  def job
+  	@title = "News | Job"
+  	@action = "job"
+  end
 end

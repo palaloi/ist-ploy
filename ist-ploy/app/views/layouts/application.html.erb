@@ -68,12 +68,9 @@
       <ul class="dropdown-menu">
         <li class="nav-header">ข่าว/ประกาศ</li>
         <li class="divider"></li>
-        <li><a href="news.html">ข่าวล่าสุด</a></li>
-        <li><a href="newsActivities.html">ข่าวกิจกรรม</a></li>
-        <li><a href="#">ข่าวภายใน</a></li>
-        <li><a href="#">ข่าวภายนอก</a></li>
-        <li><a href="newsContest.html">ข่าวงานประกวด</a></li>
-        <li><a href="#">ข่าวรับสมัครงาน</a></li>
+        <li> <%= link_to "ข่าวกิจกรรม", news_activity_path %></a></li>
+        <li> <%=link_to "ข่าวงานประกวด", news_contest_path %> </a></li>
+        <li> <%=link_to "ข่าวรับสมัครงาน", news_job_path %> </a></li> 
       </ul>
     </li>
 

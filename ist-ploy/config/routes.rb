@@ -98,6 +98,7 @@ IstPloy::Application.routes.draw do
 
   match 'news/activity' => "news#activity", :as => :news_activity
   match 'news/contest' => "news#contest", :as => :news_contest
+  match 'news/job' => "news#job", :as => :news_job
 
 
 
