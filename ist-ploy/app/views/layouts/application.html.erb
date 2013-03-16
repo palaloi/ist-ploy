@@ -43,26 +43,29 @@
 <li class="divider-vertical" style="margin: 10px 0px 0px;"></li>
 
 <!-- Portfolios -->                      
-            <li class="dropdown" style="margin: 10px 0px 0px;">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolios <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="nav-header">ผลงานต่างๆ</li>
-                  <li class="divider"></li>
-                  <li><a href="#">Recent</a></li>
-                  <li><a href="#">Everyone</a></li>
-                  <li><a href="#">Group</a></li>
-                  <li><a href="#">Tags</a></li>
-                </ul><!-- ul class="dropdown-menu" -->   
-            </li><!-- li class="dropdown" -->  
+    <!-- <li class="dropdown" style="margin: 10px 0px 0px;">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolios <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li class="nav-header">ผลงานต่างๆ</li>
+          <li class="divider"></li>
+          <li><a href="#">Recent</a></li>
+          <li><%= link_to "Recent", portfolio_feed_path(:action => "recent") %></li>
+          <li><a href="#">Everyone</a></li>
+          <li><a href="#">Group</a></li>
+          <li><a href="#">Tags</a></li>
+        </ul>
+    </li> -->
+    <li style="margin: 10px 0px 0px;"><%= link_to 'Portfolio', portfolio_feed_path%></li>
 
 <li class="divider-vertical" style="margin: 10px 0px 0px;"></li>
 
 <!-- Message -->            
-            <li style="margin: 10px 0px 0px;"><a href="#">Message </a></li>
+    <li style="margin: 10px 0px 0px;"><%= link_to 'Message', message_index_path(@user) unless @user.nil? %></li>
 
 <li class="divider-vertical" style="margin: 10px 0px 0px;"></li>
 
 <!-- News -->     
+<<<<<<< HEAD
             <li class="dropdown" style="margin: 10px 0px 0px;">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -106,7 +109,49 @@
             </li><!-- li class="dropdown" -->   
           </ul><!-- <ul class="nav pull-right"> -->
         </div><!-- <div class="nav-collapse collapse"> -->
+=======
+    <li class="dropdown" style="margin: 10px 0px 0px;">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li class="nav-header">ข่าว/ประกาศ</li>
+        <li class="divider"></li>
+        <li><a href="news.html">ข่าวล่าสุด</a></li>
+        <li><a href="newsActivities.html">ข่าวกิจกรรม</a></li>
+        <li><a href="#">ข่าวภายใน</a></li>
+        <li><a href="#">ข่าวภายนอก</a></li>
+        <li><a href="newsContest.html">ข่าวงานประกวด</a></li>
+        <li><a href="#">ข่าวรับสมัครงาน</a></li>
+      </ul>
+    </li>
+>>>>>>> 100d277dfa422e3e162373c65692eae27bc3e8f8
 
+<!-- Registration -->                          
+    <!-- <li class="dropdown" style="margin: 10px 0px 0px;">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Registration <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li class="nav-header">นาถพร ประวันนา</li>
+        <li class="divider"></li>
+        <li><a href="regisStdmars.html">View Profile</a></li>
+        <li><a href="regisTranscript.html">View Transcript</a></li>
+        <li><a href="regisTimetable.html">View Timetable</a></li>
+      </ul>
+    </li> -->
+    <% if @user %>
+    <li class="dropdown">
+      
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= image_tag(@user.photo(:thumb), :border=>0, :width => 40, :height => 40, :class => "img-rounded")%> <b class="caret" style="vertical-align: baseline;"></b></a>
+            <ul class="dropdown-menu">
+              <li class="nav-header">Profile's : พะละลอยด์</li>
+              <li class="divider"></li>
+              <li><a href="#">Edit Profile</a></li>
+              <li class="divider"></li>
+              <li><a href="#">My Portfolio</a></li>
+              <li><a href="#">Upload Portfolio</a></li>
+            </ul><!-- ul class="dropdown-menu" -->         
+      </li><!-- li class="dropdown" -->   
+      <% end %>
+     </ul>
+  </div>
       </div> <!-- End of container head menu -->
     </div><!-- navbar-inner --> 
   </div><!-- navbar navbar-inverse navbar-fixed-top -->

@@ -11,6 +11,7 @@ class AdminController < ApplicationController
 
 	def new_user
 		@title = "Administration: Add new user"
+		@user = current_user
 		@users = User.order("created_at desc")
 		@action = "all"
 		if params[:action_link]
@@ -31,6 +32,7 @@ class AdminController < ApplicationController
 		end
 	end
 	def create_user
+		@user = current_user
 		uploaded_user = params[:new_user]
 		unless uploaded_user.nil?
 			original_filename = uploaded_user.original_filename
