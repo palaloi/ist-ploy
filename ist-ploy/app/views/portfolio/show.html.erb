@@ -144,6 +144,11 @@
   }
 /* <= switcher */
         
+
+label.underline a:hover { 
+    color: blue;
+    text-decoration:underline; 
+}
 </style>
 
 <!-- script jq change image background -->
@@ -180,7 +185,12 @@ $(function(){
 							<small>
 								<li style="height: 100%;">
 									<i class="icon-tags" style="vertical-align: top;"></i>
-									<label class="icontent"  style="display: inline-block; margin-left: 8px;" id="tag_content"></label> 
+									<label class="icontent underline"  style="display: inline-block; margin-left: 8px;" id="tag_content">
+                    <% @portfolio.portfolio_tags.each do |tag| %>
+                      <%= link_to Tag.find(tag.tag_id).name, portfolio_feed_path(:tag => tag.tag_id) %>
+                    <%end unless @portfolio.portfolio_tags.nil?%>
+
+                  </label> 
 								</li>
 							</small>
 						</p>
@@ -200,7 +210,7 @@ $(function(){
   	</div><!--/span-->
 	  <div class="span9">
 	  	<p style="text-align: center;"><%= image_tag(@portfolio.photo.url(:medium), :class => "img-polaroid") %></p>
-	  	<p>
+	  	<!-- <p>
 				<div class="pagination pagination-centered">
 				  <ul>
 				    <li><a href="#">Prev</a></li>
@@ -211,7 +221,7 @@ $(function(){
 				    <li><a href="#">Next</a></li>
 				  </ul>
 				</div>
-			</p>
+			</p> -->
 	    <hr>
 
 
@@ -265,16 +275,16 @@ $(function(){
 var portfolio = <%=@portfolio.to_json.html_safe%>;
 
 $(function() {
-	if( portfolio.tags ){
-		var text = "";
-		portfolio.tags.forEach(function(d){
-			// $("#tag_content").append('<label class="icontent>' + d + '</label>');
-			// $("#tag_content").append('<div style="clear: both;"></div>');
-			text += d.name + "<br/>";
-		});
-		$("#tag_content").html(text);
-	}else {
-		$("#tag_content").text('No tag found.');
-	}
+	// if( portfolio.tags ){
+	// 	var text = "";
+	// 	portfolio.tags.forEach(function(d){
+	// 		// $("#tag_content").append('<label class="icontent>' + d + '</label>');
+	// 		// $("#tag_content").append('<div style="clear: both;"></div>');
+	// 		text += d.name + "<br/>";
+	// 	});
+	// 	$("#tag_content").html(text);
+	// }else {
+	// 	$("#tag_content").text('No tag found.');
+	// }
 });
 </script>
