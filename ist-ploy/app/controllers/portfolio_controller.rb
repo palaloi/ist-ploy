@@ -2,11 +2,13 @@
 class PortfolioController < ApplicationController
 	before_filter :require_user, :only => [:upload , :upload_detail, :upload_save]
   def index
+    @user = current_user
   end
 
   def upload
   	@portfolio = Portfolio.new
     @title = "Upload file"
+    @user = current_user
   end
   def upload_save
   	@user = current_user
@@ -84,6 +86,7 @@ class PortfolioController < ApplicationController
     @portfolio = Portfolio.order("created_at DESC")
     @tags = Tag.all
     @action = "recent"
+    @user = current_user
     if params[:category]
       @portfolio = Portfolio.find(:all, :conditions => {:portfolio_category_id => params[:category]}, :order => "created_at DESC")
       @action = "category"
@@ -106,9 +109,11 @@ class PortfolioController < ApplicationController
   def feed_file
     @title = "Portfolio Feed File"
     @portfolio = Portfolio.order("created_at DESC")
+    @user = current_user
   end
   def destroy
     @portfolio = Portfolio.find(params[:portfolio_id])
+    @user = current_user
     name = @portfolio.title unless @portfolio.nil?
     if @portfolio.destroy
       flash[:notice] = "Successfully delete portfolio named #{name}."
@@ -119,6 +124,7 @@ class PortfolioController < ApplicationController
     end
   end
   def multi_delete_port
+    @user = current_user
     puts "))))((((((((((((("
     port_ids =  params[:hidden_port_id].first.split(",") unless params[:hidden_port_id].nil?
     puts "first #{params[:hidden_port_id].first}"

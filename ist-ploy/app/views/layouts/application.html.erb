@@ -38,20 +38,22 @@
     </li>
 
 <!-- Portfolios -->                      
-    <li class="dropdown" style="margin: 10px 0px 0px;">
+    <!-- <li class="dropdown" style="margin: 10px 0px 0px;">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolios <b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li class="nav-header">ผลงานต่างๆ</li>
           <li class="divider"></li>
           <li><a href="#">Recent</a></li>
+          <li><%= link_to "Recent", portfolio_feed_path(:action => "recent") %></li>
           <li><a href="#">Everyone</a></li>
           <li><a href="#">Group</a></li>
           <li><a href="#">Tags</a></li>
-        </ul><!-- ul class="dropdown-menu" -->   
-    </li><!-- li class="dropdown" -->  
+        </ul>
+    </li> -->
+    <li style="margin: 10px 0px 0px;"><%= link_to 'Portfolio', portfolio_feed_path%></li>
 
 <!-- Message -->            
-    <li style="margin: 10px 0px 0px;"><a href="#">Message </a></li>
+    <li style="margin: 10px 0px 0px;"><%= link_to 'Message', message_index_path(@user) unless @user.nil? %></li>
 
 <!-- News -->     
     <li class="dropdown" style="margin: 10px 0px 0px;">
@@ -69,7 +71,7 @@
     </li>
 
 <!-- Registration -->                          
-    <li class="dropdown" style="margin: 10px 0px 0px;">
+    <!-- <li class="dropdown" style="margin: 10px 0px 0px;">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Registration <b class="caret"></b></a>
       <ul class="dropdown-menu">
         <li class="nav-header">นาถพร ประวันนา</li>
@@ -77,11 +79,12 @@
         <li><a href="regisStdmars.html">View Profile</a></li>
         <li><a href="regisTranscript.html">View Transcript</a></li>
         <li><a href="regisTimetable.html">View Timetable</a></li>
-      </ul><!-- ul class="dropdown-menu" -->
-    </li><!-- li class="dropdown" -->
+      </ul>
+    </li> -->
 
     <li class="dropdown">
-      <%= link_to image_tag("profile/palaloi.jpg", :border=>0, :width => 40, :height => 40, :class => "img-rounded"), "#", :class=>"dropdown-toggle" %>
+
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= image_tag(@user.photo(:thumb), :border=>0, :width => 40, :height => 40, :class => "img-rounded")%> <b class="caret" style="vertical-align: baseline;"></b></a>
             <ul class="dropdown-menu">
               <li class="nav-header">Profile's : พะละลอยด์</li>
               <li class="divider"></li>
