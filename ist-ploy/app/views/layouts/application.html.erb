@@ -87,10 +87,12 @@
             <ul class="dropdown-menu">
               <li class="nav-header">Profile's : พะละลอยด์</li>
               <li class="divider"></li>
-              <li><a href="#">Edit Profile</a></li>
+              <li> <%= link_to("Edit Profile", edit_user_path) %> </li>
               <li class="divider"></li>
               <li><a href="#">My Portfolio</a></li>
               <li><a href="#">Upload Portfolio</a></li>
+              <li class="divider"></li>
+              <li> <%= link_to "Log out", logout_path %> </li>
             </ul><!-- ul class="dropdown-menu" -->         
       </li><!-- li class="dropdown" -->   
       <% end %>
