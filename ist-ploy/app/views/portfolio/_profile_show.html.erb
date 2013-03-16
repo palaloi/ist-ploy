@@ -8,8 +8,10 @@
 	<div class="span7">
 		<span style="font-size:18px"> <%=@user.name%>	| <%=@user.firstname%> <%=@user.lastname%>&nbsp;</span>
 <!-- พลอยแก้ btn edit profile -->
-		<% if !@isAdmin.nil? and @current_user.nil? and  (@current_user.id == @user.id || @isAdmin) %>
-				<%= link_to 'Edit Profile', edit_user_path, {"data-icon" => "button", "data-theme" => "a", :class => "btn btn-info btn-small"} %>
+		<% if !@isAdmin.nil? and !@current_user.nil? and  (@current_user.id == @user.id || @isAdmin) %>
+				<% if @current_user == @user.id %>
+					<%= link_to 'Edit Profile', edit_user_path(@user), {"data-icon" => "button", "data-theme" => "a", :class => "btn btn-info btn-small"} %>
+				<% end %>
 
 				<%if request_from == "portfolio#show" %>
 					<%= link_to 'Edit Portfolio', portfolio_upload_detail_path({:portfolio_id => @portfolio.id}), {"data-icon" => "button", "data-theme" => "a", :class => "btn  btn-primary btn-small"} %>
@@ -17,9 +19,9 @@
 				<%end%>
 		<%end%>
 		
-		<% if !@current_user.nil? and @current_user.id != @user.id %>
+<!-- 		<% if !@current_user.nil? and @current_user.id != @user.id %>
 		<button type="button" id="fat-btn" class="btn btn-success btn-small"> Send PM</button>
-		<%end%>
+		<%end%> -->
 		<br>
 		<br>
 		

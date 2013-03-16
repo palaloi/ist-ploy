@@ -2,7 +2,13 @@
   <%= form_tag(portfolio_upload_save_detail_path(@portfolio), :class => "form-signin") do |f| %>
   	<h2 class="form-signin-heading">Description</h2><hr>
   	<%= hidden_field_tag "id", @portfolio.id %>
-  	<%= image_tag(@portfolio.photo.url(:medium), :class => "img-rounded") if @portfolio.photo%>
+
+  	<% extension = @portfolio.photo.original_filename.split(".").last %>
+  	<% if extension != "pdf" %>
+  		<%= image_tag(@portfolio.photo.url(:medium), :class => "img-rounded") if @portfolio.photo%>
+  	<% else %>
+  		<%= image_tag( "pdf-logo.png" , :class => "img-rounded") if @portfolio.photo%>
+  	<% end %>
 
   	<hr>
 	<div class="input-prepend">

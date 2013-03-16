@@ -209,7 +209,14 @@ $(function(){
     	</div><!--/.well -->
   	</div><!--/span-->
 	  <div class="span9">
-	  	<p style="text-align: center;"><%= image_tag(@portfolio.photo.url(:medium), :class => "img-polaroid") %></p>
+	  	<p style="text-align: center;">
+        <% extension = @portfolio.photo.original_filename.split(".").last %>
+        <% if extension != "pdf" %>
+          <%= image_tag(@portfolio.photo.url(:medium), :class => "img-polaroid") if @portfolio.photo%>
+        <% else %>
+          <%= image_tag( "pdf-logo.png" , :class => "img-polaroid") if @portfolio.photo%>
+        <% end %>
+      </p>
 	  	<!-- <p>
 				<div class="pagination pagination-centered">
 				  <ul>

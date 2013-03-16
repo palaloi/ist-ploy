@@ -75,8 +75,13 @@
 				<li class="span3">
 					<div class="thumbnail">
 						<center>
-						<%= link_to(image_tag(port.photo.url(:small)), 
-        				portfolio_show_path(:user_id => port.user_id, :portfolio_id => port.id), :class => "image-center")%>
+							<% extension = port.photo.original_filename.split(".").last %>
+			        <% if extension != "pdf" %>
+			          <%= link_to(image_tag(port.photo.url(:small)), portfolio_show_path(:user_id => port.user_id, :portfolio_id => port.id), :class => "image-center")%>
+			        <% else %>
+			        	<%= link_to(image_tag("pdf-logo.png") , portfolio_show_path(:user_id => port.user_id, :portfolio_id => port.id), :class => "image-center")%>
+			        <% end %>
+						
         				</center>
 						<!-- <div class="caption"> -->
 						

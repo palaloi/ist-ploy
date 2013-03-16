@@ -14,7 +14,7 @@ class Portfolio < ActiveRecord::Base
 
   attr_accessible :detail, :portfolio_category_id, :title, :user_id, :photo, :zip_file
 
-  validates_format_of :photo_file_name, :with => %r{\.(jpg|png|gif|zip|rar)$}i 
+  validates_format_of :photo_file_name, :with => %r{\.(jpg|png|gif|pdf)$}i 
   # validates_format_of :zip_file_name, :with => %r{\.(zip|rar)$}i, :allow_blank => true
 
   validates_attachment_size :photo, :in => 0.megabytes..3.megabytes
