@@ -76,6 +76,7 @@ IstPloy::Application.routes.draw do
 
   match 'portfolio/upload' => "portfolio#upload", :as => :portfolio_upload
   match 'portfolio/save' => "portfolio#upload_save", :as => :portfolio_upload_save
+  match 'portfolio/how_to' => "portfolio#how_to_use", :as => :portfolio_how_to
   match 'portfolio/:portfolio_id/upload_detail_save' => 'portfolio#upload_detail', :as => :portfolio_upload_detail
   match 'portfolio/:portfolio_id/save_detail' => "portfolio#upload_detail_save", :as => :portfolio_upload_save_detail
   match 'portfolio/:portfolio_id/destroy' => "portfolio#destroy", :as => :portfolio_destroy

@@ -135,4 +135,7 @@ class PortfolioController < ApplicationController
     flash[:notice] = "Successfully delete portfolio."
     redirect_to admin_manage_portfolio_path
   end
+  def how_to_use
+    @title = "Help"
+  end
 end

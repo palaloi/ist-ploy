@@ -39,7 +39,7 @@
 <li class="divider-vertical" style="margin: 10px 0px 0px;"></li>
 
 <!-- How to use -->            
-            <li style="margin: 10px 0px 0px;"><a href="#">How to Use </a></li>
+            <li style="margin: 10px 0px 0px;"><%= link_to "Help" , portfolio_how_to_path %></li>
 <li class="divider-vertical" style="margin: 10px 0px 0px;"></li>
 
 <!-- Portfolios -->                      
@@ -99,8 +99,8 @@
               <li class="divider"></li>
               <li> <%= link_to("Edit Profile", edit_user_path) %> </li>
               <li class="divider"></li>
-              <li><a href="#">My Portfolio</a></li>
-              <li><a href="#">Upload Portfolio</a></li>
+              <li> <%= link_to("My Portfolio", show_user_path(@user)) %> </li>
+              <li> <%= link_to("Upload Portfolio", portfolio_upload_path) %> </li>
               <li class="divider"></li>
               <li> <%= link_to "Log out", logout_path %> </li>
             </ul><!-- ul class="dropdown-menu" -->         
