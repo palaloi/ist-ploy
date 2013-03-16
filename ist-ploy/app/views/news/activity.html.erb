@@ -1,0 +1,46 @@
+<div class="container">   
+		<%= render "menu" %>
+	<div class="span12">
+		<div class="row">
+		<!-- ข่าวววววว -->
+			<div class="row"  align="center" id="news_container">
+		    
+		  </div>
+		</div>      
+	  <div class="row">
+			<hr>
+		</div><!-- Row -->
+	</div><!-- Row -->
+</div><!-- container -->
+<script type="text/javascript">
+	$("#news_container").html("Loading...")
+	// Create a dataset with a Google Docs backend and a url to the Google Doc
+	var dataset = new recline.Model.Dataset({
+	  url: 'https://docs.google.com/spreadsheet/ccc?key=0Au_r-v8MfydZdHVpaS1qcE9DLWhDcGZfc3BoUWxLa2c#gid=0',
+	  backend: 'gdocs'
+	});
+	dataset.fetch().done(function(dataset) {
+	  if (console) {
+	    console.log(dataset.records);
+	  }
+	  var news_string = "";
+	  $("#news_container").empty();
+	  dataset.records.models.forEach(function(d){
+	  	console.log("d.attributes -> " + d.attributes);
+	  	if(d.attributes) {
+	  		data = d.attributes;
+	  		news_string += '<div class="span4">';
+	  		news_string += '<img class="img-circle" data-src="holder.js/140x140" alt="140x140" style="width: 140px; height: 140px;" src=" ' + data.picture + '">';
+		    news_string += '<span class="label label-warning">ข่าวกิจกรรม</span><h2>' + data.name + '</h2>';
+		    news_string += '<p>' + data.description+ '</p>';
+		    news_string += '<p><a target="_blank" class="btn" href="'+ data.link+'">View details »</a></p>';
+		    news_string += '<p>date = '+data.date+'</p>';
+		    news_string += '<p>acedemic year = '+data.academicyear+'</p>';
+		    news_string += '<p>location = '+data.location+'</p>';
+		    news_string += '</div><!-- /.span4 -->'; 
+		    
+	  	}
+	  });
+	  $("#news_container").append(news_string);
+	});
+</script>

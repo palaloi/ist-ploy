@@ -1,0 +1,10 @@
+<div class="row">
+    <ul class="nav nav-pills">
+      <li ><a href="news.html">ข่าวล่าสุด</a></li>
+      <li <% if @action == "activity"%> class="active" <%end%> > <%= link_to "ข่าวกิจกรรม", news_activity_path %></a></li>
+      <li <% if @action == "contest"%> class="active" <%end%> > <%=link_to "ข่าวงานประกวด", news_contest_path %> </a></li>
+      <li><a href="#">ข่าวภายใน</a></li>
+      <li><a href="#">ข่าวภายนอก</a></li>
+      <li><a href="#">ข่าวรับสมัครงาน</a></li>
+    </ul>
+</div><!-- Row -->
