@@ -29,17 +29,20 @@
 			  <li <%if @action == "recent" %> class="active" <%end%> >
 			  	<%= link_to("Recent", portfolio_feed_path(:action => "recent")) %>
 			  </li>
-			  <li><a href="#">Everyone</a></li>
+			  <!-- <li><a href="#">Everyone</a></li> -->
 
-					<li class="dropdown">
+					<li <%if @action == "user_type" %> class="dropdown active" <%else%> class="dropdown" <%end%> >
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Group <b class="caret"></b></a>
 							<ul class="dropdown-menu">
-                                <li class="nav-header">กลุ่มผู้ใช้งาน</li>
-                                <li class="divider"></li>
-                                <li><a href="#">Students</a></li>
-                                <li><a href="#">Teacher</a></li>
-                                <li><a href="#">Staff</a></li>
-                            </ul><!-- ul class="dropdown-menu" -->
+                    <li class="nav-header">กลุ่มผู้ใช้งาน</li>
+                    <li class="divider"></li>
+                    <% @user_type.each do |type| %>
+                    	<li><%= link_to( type.name , portfolio_feed_path(:user_type => type.id)) %></li>
+                    <% end %>
+                    <!-- <li><a href="#">Students</a></li>
+                    <li><a href="#">Teacher</a></li>
+                    <li><a href="#">Staff</a></li> -->
+                </ul><!-- ul class="dropdown-menu" -->
 						</li><!-- li class="dropdown" -->
 
 

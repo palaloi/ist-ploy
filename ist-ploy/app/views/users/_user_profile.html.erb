@@ -8,11 +8,11 @@
 	<div class="span6">
 		<span style="font-size:18px"> <%=@user.name%>	| <%=@user.firstname%> <%=@user.lastname%>&nbsp;</span>
 
-		<% if @current_user.id == @user.id || @isAdmin %>
+		<% if @current_user and @current_user.id == @user.id || @isAdmin %>
 				<%= link_to 'Edit Profile', edit_user_path, {"data-icon" => "button", "data-theme" => "a", :class => "btn btn-info btn-small"} %>
 		<%end%>
 		
-		<% if @current_user.id != @user.id || @isAdmin %>
+		<% if @current_user and @current_user.id != @user.id || @isAdmin %>
 		<button type="button" id="fat-btn" class="btn btn-success btn-small"> Send PM</button>
 		<%end%>
 

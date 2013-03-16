@@ -87,18 +87,23 @@ class PortfolioController < ApplicationController
     @tags = Tag.all
     @action = "recent"
     @user = current_user
+    @user_type = UserType.where("name != 'Admin'")
     if params[:category]
       @portfolio = Portfolio.find(:all, :conditions => {:portfolio_category_id => params[:category]}, :order => "created_at DESC")
       @action = "category"
     elsif params[:tag]
       @portfolio = Tag.find(params[:tag]).portfolios
       @action = "tag"
+    elsif params[:user_type]
+      @users = User.find(:all, :conditions => {:user_type_id => params[:user_type]})
+      @portfolio = Portfolio.find(:all, :conditions => {:user_id => @users}) unless @users.nil?
+      @action = "user_type"
     elsif params[:action]
       if params[:action] == "recent"
         @portfolio = Portfolio.order("created_at DESC")  
         @action = "recent"
       end
-    else
+    else 
       @portfolio = Portfolio.order("created_at DESC")
     end
     # respond_to do |format|

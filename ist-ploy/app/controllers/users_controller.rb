@@ -1,6 +1,6 @@
 
 class UsersController < ApplicationController
-	before_filter :require_user,  :only => [:show, :edit, :update]
+	before_filter :require_user,  :only => [:edit_password, :edit, :update, :edit_about, :edit_skill]
 
   def new
     @user = User.new
